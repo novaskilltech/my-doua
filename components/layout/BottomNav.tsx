@@ -11,7 +11,7 @@ export function BottomNav() {
   const { t } = useTranslation();
 
   const navItems = [
-    { href: '/', icon: 'home', label: t.home },
+    { href: '/app', icon: 'home', label: t.home },
     { href: '/categories', icon: 'menu_book', label: t.categories },
     { href: '/my-duas', icon: 'auto_awesome', label: t.myDuas },
     { href: '/settings', icon: 'settings', label: t.settings },
