@@ -18,12 +18,38 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://doua.novaskill.tech'),
   title: 'Mon Dou‘a Adéquat',
   description: 'L’application qui te conseille le bon dou‘a au bon moment.',
   icons: {
     icon: '/favicon1.png',
+    apple: '/app_logo.png',
+  },
+  openGraph: {
+    title: 'Mon Dou‘a Adéquat',
+    description: 'Trouvez l’invocation qui correspond exactement à vos ressentis en langage naturel, avec des sources authentiques.',
+    url: 'https://doua.novaskill.tech',
+    siteName: 'Mon Dou‘a',
+    images: [
+      {
+        url: '/app_banner.png',
+        width: 1200,
+        height: 630,
+        alt: 'Mon Dou‘a - Invocations & Assistant Spirituel',
+      },
+    ],
+    locale: 'fr_FR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Mon Dou‘a Adéquat',
+    description: 'L’application qui te conseille le bon dou‘a au bon moment.',
+    images: ['/app_banner.png'],
   },
 };
+
+
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
