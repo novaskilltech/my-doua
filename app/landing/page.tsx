@@ -52,11 +52,11 @@ export default function LandingPage() {
         <nav className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
             <Image 
-              src="/favicon1.png" 
+              src="/app_logo.png" 
               alt="Logo" 
               width={38} 
               height={38} 
-              className="rounded-full shadow-sm"
+              className="rounded-full shadow-md"
             />
             <h1 className="text-xl md:text-2xl font-headline font-bold text-primary tracking-tight flex items-center gap-2">
               Mon Dou‘a <span className="text-secondary font-medium font-arabic">دعائي</span>
@@ -210,8 +210,19 @@ export default function LandingPage() {
       </section>
 
       {/* Value Proposition / Transparency Banner */}
-      <section className="bg-primary text-on-primary py-12 px-6">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 text-center md:text-left">
+      <section className="relative bg-primary text-on-primary py-16 px-6 overflow-hidden">
+        {/* Banner overlay background */}
+        <div className="absolute inset-0 w-full h-full -z-10">
+          <Image 
+            src="/app_banner.png" 
+            alt="Bannière motifs islamiques" 
+            fill
+            className="object-cover opacity-25 brightness-50"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-transparent to-primary/90"></div>
+        </div>
+
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 text-center md:text-left relative z-10">
           <div className="space-y-2">
             <h4 className="text-lg font-headline font-bold text-secondary-container">100% Hors-ligne</h4>
             <p className="text-sm opacity-80 leading-relaxed">Pas besoin de connexion Internet constante. Vos douas sont sauvegardés et consultables n&apos;importe où.</p>
@@ -425,7 +436,7 @@ export default function LandingPage() {
 
         <div className="max-w-2xl mx-auto space-y-8 relative z-10">
           <Image 
-            src="/favicon1.png" 
+            src="/app_logo.png" 
             alt="Logo" 
             width={64} 
             height={64} 

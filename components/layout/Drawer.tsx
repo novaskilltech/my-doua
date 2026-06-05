@@ -48,11 +48,11 @@ export function Drawer() {
             <div className="flex items-center justify-between mb-12">
               <div className="flex items-center gap-3">
                 <Image 
-                  src="/favicon1.png" 
+                  src="/app_logo.png" 
                   alt="Logo" 
                   width={64} 
                   height={64} 
-                  className="rounded-full"
+                  className="rounded-full shadow-md"
                 />
               </div>
               <button 

@@ -62,7 +62,7 @@ export function TopBar({ title, showBack, onBack }: TopBarProps) {
           <Image 
             alt="Logo" 
             className="w-full h-full object-cover" 
-            src="/favicon1.png" 
+            src="/app_logo.png" 
             fill
             referrerPolicy="no-referrer"
           />
