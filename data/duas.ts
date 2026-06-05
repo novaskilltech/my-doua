@@ -24,7 +24,7 @@ export const MOCK_DUAS: Dua[] = [
   },
   {
     id: "dua-3",
-    arabic: "بِاسْمِكَ رَبِّي وَضَعْتُ جَنْبِي، وَبِكَ أَرْفَعُهُ، فَإِنْ أَمْسَكْتَ نَفْسِي فَارْحَمْهَا، وَإِنْ أَرْسَلْتَهَا فَاحْفَظْهَا، bِمَا تَحْفَظُ بِهِ عِبَادَكَ الصَّالِحِينَ",
+    arabic: "بِاسْمِكَ رَبِّي وَضَعْتُ جَنْبِي، وَبِكَ أَرْفَعُهُ، فَإِنْ أَمْسَكْتَ نَفْسِي فَارْحَمْهَا، وَإِنْ أَرْسَلْتَهَا فَاحْفَظْهَا، بِمَا تَحْفَظُ بِهِ عِبَادَكَ الصَّالِحِينَ",
     transliteration: "Bismika Rabbī waḍa'tu janbī, wa bika arfa'uh, fa-in amsakta nafsī far-ḥamhā, wa in arsaltahā fa-ḥfaẓhā bimā taḥfaẓu bihi 'ibādakaṣ-ṣāliḥīn",
     translation: "C'est en Ton nom, mon Seigneur, que je pose mon flanc et c'est par Toi que je le relève. Si Tu reprends mon âme, fais-lui miséricorde, et si Tu la renvoies, préserve-la comme Tu préserves Tes serviteurs vertueux.",
     source: "Al-Bukhari & Muslim",

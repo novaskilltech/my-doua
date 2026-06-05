@@ -1,5 +1,5 @@
 import type {Metadata} from 'next';
-import { Noto_Serif, Manrope } from 'next/font/google';
+import { Noto_Serif, Manrope, Noto_Naskh_Arabic } from 'next/font/google';
 import './globals.css';
 import { AppShell } from '@/components/layout/AppShell';
 
@@ -13,6 +13,13 @@ const notoSerif = Noto_Serif({
 const manrope = Manrope({ 
   subsets: ['latin'], 
   variable: '--font-body',
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+});
+
+const notoNaskhArabic = Noto_Naskh_Arabic({
+  subsets: ['arabic'],
+  variable: '--font-arabic',
   weight: ['400', '500', '600', '700'],
   display: 'swap',
 });
@@ -61,7 +68,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" 
         />
       </head>
-      <body className={`${notoSerif.variable} ${manrope.variable} font-body`} suppressHydrationWarning>
+      <body className={`${notoSerif.variable} ${manrope.variable} ${notoNaskhArabic.variable} font-body`} suppressHydrationWarning>
         <AppShell>{children}</AppShell>
       </body>
     </html>

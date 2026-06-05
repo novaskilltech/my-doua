@@ -30,9 +30,9 @@
   --color-surface-container-high: var(--surface-container-high);
   --color-surface-container-highest: var(--surface-container-highest);
 
-  --font-headline: "Noto Serif", serif;
-  --font-body: "Manrope", sans-serif;
-  --font-arabic: "Noto Serif", serif;
+  --font-headline: var(--font-headline), serif;
+  --font-body: var(--font-body), sans-serif;
+  --font-arabic: var(--font-arabic), "Noto Naskh Arabic", serif;
 }
 
 :root {
