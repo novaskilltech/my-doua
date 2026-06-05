@@ -28,4 +28,6 @@ export const CATEGORIES: Category[] = [
   { id: "demande-generale", label: { ar: "دعاء عام", fr: "Demande générale", en: "General Request" }, icon: "MessageSquare" },
   { id: "matin", label: { ar: "صباح", fr: "Matin", en: "Morning" }, icon: "Sun" },
   { id: "soir", label: { ar: "مساء", fr: "Soir", en: "Evening" }, icon: "Moon" },
+  { id: "voyage", label: { ar: "سفر", fr: "Voyage", en: "Travel" }, icon: "Plane" },
+  { id: "famille", label: { ar: "أهل وأولاد", fr: "Famille & Enfants", en: "Family & Children" }, icon: "Users" },
 ];

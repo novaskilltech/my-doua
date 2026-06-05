@@ -3,7 +3,7 @@ import { Dua } from "../types";
 export const MOCK_DUAS: Dua[] = [
   {
     id: "dua-1",
-    arabic: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ، وَالْعَجْZِ وَالْكَسَلِ، وَالْبُخْلِ وَالْجُبْنِ، وَضَلَعِ الدَّيْنِ، وَغَلَبَةِ الرِّجَالِ",
+    arabic: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَZِ وَالْعَجْZِ وَالْكَسَلِ، وَالْبُخْلِ وَالْجُبْنِ، وَضَلَعِ الدَّيْنِ، وَغَلَبَةِ الرِّجَالِ",
     transliteration: "Allāhumma innī a'ūdhu bika minal-hammi wal-ḥazan, wal-'ajzi wal-kasal, wal-bukhli wal-jubn, wa ḍala'id-dayni wa ghalabatir-rijāl",
     translation: "Ô Allah, je cherche protection auprès de Toi contre l'anxiété et la tristesse, l'incapacité et la paresse, l'avarice et la lâcheté, le fardeau de la dette et la domination des hommes.",
     source: "Al-Bukhari",
@@ -24,7 +24,7 @@ export const MOCK_DUAS: Dua[] = [
   },
   {
     id: "dua-3",
-    arabic: "بِاسْمِكَ رَبِّي وَضَعْتُ جَنْبِي، وَبِكَ أَرْفَعُهُ، فَإِنْ أَمْسَكْتَ نَفْسِي فَارْحَمْهَا، وَإِنْ أَرْسَلْتَهَا فَاحْفَظْهَا، بِمَا تَحْفَظُ بِهِ عِبَادَكَ الصَّالِحِينَ",
+    arabic: "بِاسْمِكَ رَبِّي وَضَعْتُ جَنْبِي، وَبِكَ أَرْفَعُهُ، فَإِنْ أَمْسَكْتَ نَفْسِي فَارْحَمْهَا، وَإِنْ أَرْسَلْتَهَا فَاحْفَظْهَا، bِمَا تَحْفَظُ بِهِ عِبَادَكَ الصَّالِحِينَ",
     transliteration: "Bismika Rabbī waḍa'tu janbī, wa bika arfa'uh, fa-in amsakta nafsī far-ḥamhā, wa in arsaltahā fa-ḥfaẓhā bimā taḥfaẓu bihi 'ibādakaṣ-ṣāliḥīn",
     translation: "C'est en Ton nom, mon Seigneur, que je pose mon flanc et c'est par Toi que je le relève. Si Tu reprends mon âme, fais-lui miséricorde, et si Tu la renvoies, préserve-la comme Tu préserves Tes serviteurs vertueux.",
     source: "Al-Bukhari & Muslim",
@@ -140,7 +140,7 @@ export const MOCK_DUAS: Dua[] = [
     hadithStatus: "Sahih",
     recommendedMoment: "Matin et soir, ou en faisant halte dans un lieu",
     repetition: "3 fois",
-    categoryIds: ["protection", "mauvais-oeil", "peur", "epreuve", "matin", "soir"]
+    categoryIds: ["protection", "mauvais-oeil", "peur", "epreuve", "matin", "soir", "voyage"]
   },
   {
     id: "dua-14",
@@ -218,5 +218,71 @@ export const MOCK_DUAS: Dua[] = [
     recommendedMoment: "Matin et soir",
     repetition: "3 fois",
     categoryIds: ["matin", "soir", "protection"]
+  },
+  {
+    id: "dua-21",
+    arabic: "سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ",
+    transliteration: "Subḥānal-ladhī sakhkhara lanā hādhā wa mā kunnā lahu muqrinīn, wa innā ilā Rabbinā lamunqalibūn",
+    translation: "Gloire à Celui qui a mis ceci à notre service alors que nous n'étions pas capables de le dominer. Et c'est vers notre Seigneur que nous retournerons.",
+    source: "Muslim (Coran 43:13-14)",
+    hadithStatus: "Sahih",
+    recommendedMoment: "Au moment de monter dans un transport",
+    repetition: "1 fois",
+    categoryIds: ["voyage", "protection"]
+  },
+  {
+    id: "dua-22",
+    arabic: "اللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى، وَمِنَ الْعَمَلِ مَا تَرْضَى",
+    transliteration: "Allāhumma innā nas'aluka fī safarinā hādhā al-birra wat-taqwā, wa minal-'amali mā tarḍā",
+    translation: "Ô Allah, nous Te demandons dans ce voyage la piété, la dévotion et les œuvres qui Te plaisent.",
+    source: "Muslim",
+    hadithStatus: "Sahih",
+    recommendedMoment: "Au début du voyage",
+    repetition: "1 fois",
+    categoryIds: ["voyage"]
+  },
+  {
+    id: "dua-23",
+    arabic: "اللَّهُمَّ أَنْتَ الصَّاحِبُ فِي السَّفَرِ، وَالْخَلِيفَةُ فِي الْأَهْلِ",
+    transliteration: "Allāhumma Antaṣ-Ṣāḥibu fis-safar, wal-Khalīfatu fil-ahl",
+    translation: "Ô Allah, Tu es le compagnon de voyage et le garant de la famille durant notre absence.",
+    source: "Muslim",
+    hadithStatus: "Sahih",
+    recommendedMoment: "Pendant le voyage",
+    repetition: "1 fois",
+    categoryIds: ["voyage", "protection"]
+  },
+  {
+    id: "dua-24",
+    arabic: "رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا",
+    transliteration: "Rabbanā hab lanā min azwājinā wa dhurriyyātinā qurrata a'yunin waj'alnā lil-muttaqīna imāmā",
+    translation: "Seigneur, donne-nous, en nos épouses et nos descendants, la joie des yeux, et fais de nous des guides pour les pieux.",
+    source: "Coran (25:74)",
+    hadithStatus: "Sahih",
+    recommendedMoment: "Dans ses prières",
+    repetition: "1 fois",
+    categoryIds: ["famille", "bonheur"]
+  },
+  {
+    id: "dua-25",
+    arabic: "رَبِّ اجْعَلْنِي مُقِيمَ الصَّلَاةِ وَمِنْ ذُرِّيَّتِي رَبَّنَا وَتَقَبَّلْ دُعَاءِ",
+    transliteration: "Rabbij-'alnī muqīmaṣ-ṣalāti wa min dhurriyyatī Rabbanā wa taqabbal du'ā'",
+    translation: "Ô mon Seigneur ! Fais que j'accomplisse assidûment la prière, ainsi qu'une partie de ma descendance ; exauce ma prière, ô notre Seigneur !",
+    source: "Coran (14:40)",
+    hadithStatus: "Sahih",
+    recommendedMoment: "Dans ses prières",
+    repetition: "1 fois",
+    categoryIds: ["famille"]
+  },
+  {
+    id: "dua-26",
+    arabic: "أُعِيذُكُمَا بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ، وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ",
+    transliteration: "U'īdhukumā bi-kalimāti-l-Lāhi-t-tāmmati min kulli shayṭānin wa hāmmah, wa min kulli 'aynin lāmmah",
+    translation: "Je cherche protection pour vous deux par les paroles parfaites d'Allah contre tout démon, tout animal venimeux et contre tout mauvais œil.",
+    source: "Al-Bukhari",
+    hadithStatus: "Sahih",
+    recommendedMoment: "Pour la protection des enfants/famille",
+    repetition: "1 fois",
+    categoryIds: ["famille", "protection", "mauvais-oeil"]
   }
 ];
