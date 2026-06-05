@@ -36,6 +36,7 @@ export async function POST(request: Request) {
       }
     });
 
+    console.log("Gemini Raw Response:", response.text);
     const result = JSON.parse(response.text || "{}");
     const selectedDuas = MOCK_DUAS.filter(d => result.selectedDuaIds?.includes(d.id));
     const finalDuas = selectedDuas.length > 0 ? selectedDuas : [MOCK_DUAS[0]];
