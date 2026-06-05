@@ -164,7 +164,6 @@ export default function SettingsPage() {
                 {useAppStore((state) => state.isPremium) ? t.premium : t.freeVersion}
               </span>
             </div>
-            
             {!useAppStore((state) => state.isPremium) ? (
               <div className="pt-2 flex flex-col gap-2">
                 <input 
@@ -178,9 +177,6 @@ export default function SettingsPage() {
                   }}
                   className="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-xl px-4 py-2.5 text-xs text-on-surface focus:outline-none focus:border-primary"
                 />
-                <p className="text-[10px] text-on-surface-variant/40 leading-relaxed">
-                  Tip de test : saisissez le code mensuel <span className="font-bold">MDA-MONTHLY-X799</span> ou annuel <span className="font-bold">MDA-ANNUAL-Y1299</span> pour activer le statut premium.
-                </p>
               </div>
             ) : (
               <div className="pt-2 text-center">
