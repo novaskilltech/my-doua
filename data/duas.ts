@@ -3,14 +3,14 @@ import { Dua } from "../types";
 export const MOCK_DUAS: Dua[] = [
   {
     id: "dua-1",
-    arabic: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ، وَالْعَجْزِ وَالْكَسَلِ، وَالْبُخْلِ وَالْجُبْنِ، وَضَلَعِ الدَّيْنِ، وَغَلَبَةِ الرِّجَالِ",
+    arabic: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ، وَالْعَجْZِ وَالْكَسَلِ، وَالْبُخْلِ وَالْجُبْنِ، وَضَلَعِ الدَّيْنِ، وَغَلَبَةِ الرِّجَالِ",
     transliteration: "Allāhumma innī a'ūdhu bika minal-hammi wal-ḥazan, wal-'ajzi wal-kasal, wal-bukhli wal-jubn, wa ḍala'id-dayni wa ghalabatir-rijāl",
     translation: "Ô Allah, je cherche protection auprès de Toi contre l'anxiété et la tristesse, l'incapacité et la paresse, l'avarice et la lâcheté, le fardeau de la dette et la domination des hommes.",
     source: "Al-Bukhari",
     hadithStatus: "Sahih",
     recommendedMoment: "Matin et soir",
     repetition: "3 fois",
-    categoryIds: ["anxiete", "tristesse", "difficulte-financiere"]
+    categoryIds: ["anxiete", "tristesse", "difficulte-financiere", "matin", "soir"]
   },
   {
     id: "dua-2",
@@ -85,7 +85,7 @@ export const MOCK_DUAS: Dua[] = [
     hadithStatus: "Sahih",
     recommendedMoment: "Matin et soir, ou pour protéger les enfants",
     repetition: "3 fois",
-    categoryIds: ["protection", "mauvais-oeil", "sorcellerie", "jalousie", "peur", "envie"]
+    categoryIds: ["protection", "mauvais-oeil", "sorcellerie", "jalousie", "peur", "envie", "matin", "soir"]
   },
   {
     id: "dua-9",
@@ -129,7 +129,7 @@ export const MOCK_DUAS: Dua[] = [
     hadithStatus: "Sahih",
     recommendedMoment: "Matin et soir",
     repetition: "1 fois",
-    categoryIds: ["mal-etre", "apaisement", "tristesse", "anxiete", "bonheur"]
+    categoryIds: ["mal-etre", "apaisement", "tristesse", "anxiete", "bonheur", "matin", "soir"]
   },
   {
     id: "dua-13",
@@ -140,7 +140,7 @@ export const MOCK_DUAS: Dua[] = [
     hadithStatus: "Sahih",
     recommendedMoment: "Matin et soir, ou en faisant halte dans un lieu",
     repetition: "3 fois",
-    categoryIds: ["protection", "mauvais-oeil", "peur", "epreuve"]
+    categoryIds: ["protection", "mauvais-oeil", "peur", "epreuve", "matin", "soir"]
   },
   {
     id: "dua-14",
@@ -151,7 +151,7 @@ export const MOCK_DUAS: Dua[] = [
     hadithStatus: "Sahih",
     recommendedMoment: "Matin et soir",
     repetition: "1 fois",
-    categoryIds: ["repentir", "demande-generale", "apaisement"]
+    categoryIds: ["repentir", "demande-generale", "apaisement", "matin", "soir"]
   },
   {
     id: "dua-15",
@@ -163,5 +163,60 @@ export const MOCK_DUAS: Dua[] = [
     recommendedMoment: "En posant la main sur la zone douloureuse",
     repetition: "1 fois",
     categoryIds: ["maladie", "epreuve", "protection"]
+  },
+  {
+    id: "dua-16",
+    arabic: "أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
+    transliteration: "Aṣbaḥnā wa aṣbaḥal-mulku lillāh, wal-ḥamdu lillāh, lā ilāha illallāhu waḥdahu lā sharīka lah, lahul-mulku wa lahul-ḥamdu wa huwa 'alā kulli shay'in qadīr",
+    translation: "Nous sommes au matin et le règne appartient à Allah, louange à Allah. Il n'y a pas de divinité en dehors d'Allah unique, sans associé. À Lui la royauté et la louange, et Il est Tout-Puissant.",
+    source: "Muslim",
+    hadithStatus: "Sahih",
+    recommendedMoment: "Le matin",
+    repetition: "1 fois",
+    categoryIds: ["matin", "protection", "apaisement"]
+  },
+  {
+    id: "dua-17",
+    arabic: "أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
+    transliteration: "Amsaynā wa amsal-mulku lillāh, wal-ḥamdu lillāh, lā ilāha illallāhu waḥdahu lā sharīka lah, lahul-mulku wa lahul-ḥamdu wa huwa 'alā kulli shay'in qadīr",
+    translation: "Nous sommes au soir et le règne appartient à Allah, louange à Allah. Il n'y a pas de divinité en dehors d'Allah unique, sans associé. À Lui la royauté et la louange, et Il est Tout-Puissant.",
+    source: "Muslim",
+    hadithStatus: "Sahih",
+    recommendedMoment: "Le soir",
+    repetition: "1 fois",
+    categoryIds: ["soir", "protection", "apaisement"]
+  },
+  {
+    id: "dua-18",
+    arabic: "اللَّهُمَّ بِاسْمِكَ أَمُوتُ وَأَحْيَا",
+    transliteration: "Allāhumma bismika amūtu wa aḥyā",
+    translation: "Ô Allah, c'est en Ton nom que je meurs et que je vis.",
+    source: "Al-Bukhari",
+    hadithStatus: "Sahih",
+    recommendedMoment: "Avant de s'endormir",
+    repetition: "1 fois",
+    categoryIds: ["sommeil", "protection"]
+  },
+  {
+    id: "dua-19",
+    arabic: "اللَّهُمَّ قِنِي عَذَابَكَ يَوْمَ تَبْعَثُ عِبَادَكَ",
+    transliteration: "Allāhumma qinī 'adhābaka yawma tab'athu 'ibādak",
+    translation: "Ô Allah, préserve-moi de Ton châtiment le jour où Tu ressusciteras Tes serviteurs.",
+    source: "Abu Dawud & At-Tirmidhi",
+    hadithStatus: "Sahih",
+    recommendedMoment: "Avant de dormir",
+    repetition: "3 fois",
+    categoryIds: ["sommeil", "protection"]
+  },
+  {
+    id: "dua-20",
+    arabic: "بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ",
+    transliteration: "Bismillāhille dhī lā yaḍurru ma'as mihi shay'un fil-arḍi wa lā fis-samā'i wa Huwas-Samī'ul-'Alīm",
+    translation: "Au nom d'Allah, tel qu'en Compagnie de Son Nom rien ne peut nuire sur terre ni dans le ciel, et Il est l'Audient, l'Omniscient.",
+    source: "Abu Dawud & At-Tirmidhi",
+    hadithStatus: "Sahih",
+    recommendedMoment: "Matin et soir",
+    repetition: "3 fois",
+    categoryIds: ["matin", "soir", "protection"]
   }
 ];

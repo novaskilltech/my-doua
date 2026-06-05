@@ -26,4 +26,6 @@ export const CATEGORIES: Category[] = [
   { id: "protection", label: { ar: "حماية", fr: "Protection", en: "Protection" }, icon: "ShieldCheck" },
   { id: "apaisement", label: { ar: "طمأنينة", fr: "Apaisement", en: "Peace" }, icon: "Leaf" },
   { id: "demande-generale", label: { ar: "دعاء عام", fr: "Demande générale", en: "General Request" }, icon: "MessageSquare" },
+  { id: "matin", label: { ar: "صباح", fr: "Matin", en: "Morning" }, icon: "Sun" },
+  { id: "soir", label: { ar: "مساء", fr: "Soir", en: "Evening" }, icon: "Moon" },
 ];
