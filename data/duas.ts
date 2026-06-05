@@ -3,7 +3,7 @@ import { Dua } from "../types";
 export const MOCK_DUAS: Dua[] = [
   {
     id: "dua-1",
-    arabic: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَZِ وَالْعَجْZِ وَالْكَسَلِ، وَالْبُخْلِ وَالْجُبْنِ، وَضَلَعِ الدَّيْنِ، وَغَلَبَةِ الرِّجَالِ",
+    arabic: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ، وَالْعَجْزِ وَالْكَسَلِ، وَالْبُخْلِ وَالْجُبْنِ، وَضَلَعِ الدَّيْنِ، وَغَلَبَةِ الرِّجَالِ",
     transliteration: "Allāhumma innī a'ūdhu bika minal-hammi wal-ḥazan, wal-'ajzi wal-kasal, wal-bukhli wal-jubn, wa ḍala'id-dayni wa ghalabatir-rijāl",
     translation: "Ô Allah, je cherche protection auprès de Toi contre l'anxiété et la tristesse, l'incapacité et la paresse, l'avarice et la lâcheté, le fardeau de la dette et la domination des hommes.",
     source: "Al-Bukhari",
