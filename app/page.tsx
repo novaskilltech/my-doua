@@ -4,7 +4,11 @@ import { motion } from 'motion/react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import { Sparkles, Heart, Shield, BookOpen, Smartphone, ChevronDown, CheckCircle, ArrowRight } from 'lucide-react';
+import { 
+  Sparkles, Heart, Shield, BookOpen, Smartphone, 
+  ChevronDown, CheckCircle, ArrowRight, Coffee, Cpu, 
+  Gift, Bot, Lock, Info 
+} from 'lucide-react';
 
 export default function LandingPage() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
@@ -27,8 +31,8 @@ export default function LandingPage() {
       a: "Absolument. Nous croyons au respect total de la vie privée. L'application fonctionne sans compte obligatoire. Vos invocations sauvegardées et vos préférences sont stockées localement sur votre appareil (IndexedDB). Aucune information personnelle ne transite vers un serveur externe."
     },
     {
-      q: "Puis-je l'utiliser hors-ligne ?",
-      a: "Oui ! Les douas indispensables et vos favoris sont stockés localement afin que vous puissiez les consulter même sans connexion Internet, idéal lors de vos déplacements ou moments d'isolement."
+      q: "Comment fonctionne l'activation de l'Assistant IA ?",
+      a: "Une fois votre abonnement souscrit sur Stripe, vous recevrez instantanément un code d'activation. Il vous suffit de le coller dans les Paramètres de l'application pour activer la recherche en langage naturel."
     }
   ];
 
@@ -53,7 +57,7 @@ export default function LandingPage() {
           <div className="flex items-center gap-3">
             <Image 
               src="/app_logo.png" 
-              alt="Logo" 
+              alt="Logo Mon Dou'a" 
               width={38} 
               height={38} 
               className="rounded-full shadow-md"
@@ -62,12 +66,12 @@ export default function LandingPage() {
               Mon Dou‘a <span className="text-secondary font-medium font-arabic">دعائي</span>
             </h1>
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4">
             <Link href="#features" className="hidden md:block text-sm font-bold text-on-surface-variant hover:text-primary transition-colors">
-              Fonctionnalités
+              Découvrir
             </Link>
-            <Link href="#faq" className="hidden md:block text-sm font-bold text-on-surface-variant hover:text-primary transition-colors">
-              FAQ
+            <Link href="#tarification" className="hidden md:block text-sm font-bold text-on-surface-variant hover:text-primary transition-colors">
+              Tarification
             </Link>
             <Link href="/app" className="bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container px-6 py-2.5 rounded-full font-bold text-sm shadow-md hover:shadow-lg transition-all duration-300 active:scale-95">
               Ouvrir l&apos;application
@@ -76,365 +80,522 @@ export default function LandingPage() {
         </nav>
       </header>
 
-      {/* Hero Section */}
-      <section className="pt-40 pb-20 px-6 max-w-6xl mx-auto">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
-          <motion.div 
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="lg:col-span-7 space-y-8"
-          >
-            <motion.div 
-              variants={itemVariants}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[11px] font-bold tracking-wider uppercase shadow-sm"
-            >
-              <Sparkles size={14} className="text-secondary" />
-              <span>Mon Dou‘a • <span className="font-arabic font-bold text-xs lowercase">دعائي</span> — 100% Gratuit</span>
-            </motion.div>
-            
-            <motion.h2 
-              variants={itemVariants}
-              className="text-4xl sm:text-5xl md:text-6.5xl font-headline font-bold text-primary leading-tight"
-            >
-              Quand le cœur est lourd <br />
-              <span className="text-secondary italic">et que les mots manquent.</span>
-            </motion.h2>
-            
-            <motion.p 
-              variants={itemVariants}
-              className="text-lg md:text-xl text-on-surface-variant leading-relaxed max-w-xl"
-            >
-              Anxiété, tristesse, épreuve ou gratitude... Il est parfois difficile de savoir quel dou‘a formuler. Confiez simplement votre état d&apos;esprit actuel en langage naturel et trouvez immédiatement l&apos;invocation exacte et apaisante issue des sources prophétiques authentiques.
-            </motion.p>
-            
-            <motion.div 
-              variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-4 pt-2"
-            >
-              <Link href="/app" className="group bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-primary/15 transition-all flex items-center justify-center gap-2 active:scale-95">
-                Trouver mon Dou‘a maintenant
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link href="#features" className="bg-surface-container-high hover:bg-surface-container-highest px-8 py-4 rounded-full font-bold text-lg text-primary text-center transition-all active:scale-95">
-                Découvrir l&apos;application gratuite
-              </Link>
-            </motion.div>
-          </motion.div>
-
-          {/* Visual Presentation (Islamic Architecture Frame + Smartphone Mockup) */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-5 flex justify-center items-center relative min-h-[600px]"
-          >
-            {/* Islamic Architecture Background Card */}
-            <div className="absolute inset-0 w-full h-[520px] rounded-[40px] overflow-hidden border border-primary/20 shadow-2xl">
-              <Image 
-                src="/islamic_architecture.png" 
-                alt="Architecture Islamique Moderne" 
-                fill
-                priority
-                className="object-cover opacity-35 filter brightness-90 hover:scale-105 transition-transform duration-1000"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent"></div>
-              {/* Subtle glowing ambient light */}
-              <div className="absolute -top-12 -left-12 w-48 h-48 bg-primary/10 rounded-full blur-[80px]"></div>
-              <div className="absolute -bottom-12 -right-12 w-48 h-48 bg-secondary-container/20 rounded-full blur-[80px]"></div>
-            </div>
-
-            {/* Interactive CSS Smartphone Mockup */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30, rotate: 1 }}
-              animate={{ opacity: 1, y: 0, rotate: -1 }}
-              transition={{ type: "spring", duration: 1.2, delay: 0.4 }}
-              className="relative w-72 h-[500px] bg-slate-900 rounded-[3rem] p-3 shadow-2xl border-4 border-slate-800 ring-12 ring-slate-900/10 z-10 scale-95 md:scale-100"
-            >
-              {/* Notch */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-slate-900 rounded-b-2xl z-20 flex items-center justify-center">
-                <div className="w-12 h-1 bg-slate-800 rounded-full mb-1"></div>
-              </div>
-              {/* Screen Content Preview */}
-              <div className="w-full h-full bg-surface rounded-[2.2rem] overflow-hidden relative flex flex-col pt-8 px-4 border border-outline-variant/20 select-none">
-                <div className="flex items-center gap-1.5 text-secondary mb-1">
-                  <Sparkles size={12} />
-                  <span className="text-[8px] font-bold uppercase tracking-wider">Bienvenue</span>
-                </div>
-                <h4 className="font-headline font-bold text-primary text-xl mb-3">Paix sur vous,</h4>
-                
-                {/* Mock Card */}
-                <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-4 shadow-sm space-y-3 mb-4">
-                  <div className="flex items-center gap-2">
-                    <div className="w-6 h-6 bg-primary/10 rounded-md flex items-center justify-center text-primary">
-                      <Sparkles size={12} />
-                    </div>
-                    <span className="text-[10px] font-bold text-primary">Quel est votre état d&apos;esprit ?</span>
-                  </div>
-                  <div className="bg-surface-container-low border border-outline-variant/20 rounded-xl p-3 text-[10px] text-on-surface-variant/50 italic">
-                    Je ressens une légère anxiété face à mes examens...
-                  </div>
-                  <div className="flex justify-end">
-                    <div className="bg-primary text-on-primary text-[10px] font-bold px-3 py-1.5 rounded-lg">
-                      Trouver mon Dou‘a
-                    </div>
-                  </div>
-                </div>
-
-                {/* Suggestions Mock */}
-                <div className="text-[9px] font-bold text-primary uppercase tracking-wider mb-2">Suggestions</div>
-                <div className="grid grid-cols-2 gap-2 mb-4">
-                  <div className="bg-surface-container-high rounded-xl p-3 flex flex-col justify-between aspect-square">
-                    <div className="w-6 h-6 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-2">
-                      <Heart size={12} />
-                    </div>
-                    <div className="font-headline font-bold text-xs text-primary">Gratitude</div>
-                  </div>
-                  <div className="bg-secondary-container rounded-xl p-3 flex flex-col justify-between aspect-square">
-                    <div className="w-6 h-6 bg-white/50 rounded-lg flex items-center justify-center text-on-secondary-container mb-2">
-                      <Sparkles size={12} />
-                    </div>
-                    <div className="font-headline font-bold text-xs text-on-secondary-container">Apaisement</div>
-                  </div>
-                </div>
-
-                {/* Status Indicator */}
-                <div className="mt-auto pb-4 flex items-center justify-center gap-2 text-[9px] text-on-surface-variant/40">
-                  <CheckCircle size={10} className="text-secondary" />
-                  <span>Base de données locale synchronisée</span>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Value Proposition / Transparency Banner */}
-      <section className="relative bg-primary text-on-primary py-16 px-6 overflow-hidden">
-        {/* Banner overlay background */}
+      {/* Hero Intro banner styled like the app banner */}
+      <div className="relative pt-32 pb-12 px-6 overflow-hidden bg-primary text-on-primary border-b border-outline-variant/20">
         <div className="absolute inset-0 w-full h-full -z-10">
           <Image 
             src="/app_banner.png" 
             alt="Bannière motifs islamiques" 
             fill
-            className="object-cover opacity-25 brightness-50"
+            className="object-cover opacity-20 brightness-50"
+            priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-transparent to-primary/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/90 via-transparent to-primary/95"></div>
         </div>
-
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 text-center md:text-left relative z-10">
-          <div className="space-y-2">
-            <h4 className="text-lg font-headline font-bold text-secondary-container">100% Hors-ligne</h4>
-            <p className="text-sm opacity-80 leading-relaxed">Pas besoin de connexion Internet constante. Vos douas sont sauvegardés et consultables n&apos;importe où.</p>
-          </div>
-          <div className="space-y-2">
-            <h4 className="text-lg font-headline font-bold text-secondary-container">Confidentialité totale</h4>
-            <p className="text-sm opacity-80 leading-relaxed">Aucune donnée n&apos;est transmise ou collectée. Tout est conservé en local sur votre appareil pour respecter votre intimité.</p>
-          </div>
-          <div className="space-y-2">
-            <h4 className="text-lg font-headline font-bold text-secondary-container">Rigueur scientifique</h4>
-            <p className="text-sm opacity-80 leading-relaxed">Chaque invocation est rigoureusement référencée avec sa source hadith authentifiée (Bukhari, Muslim, etc.).</p>
-          </div>
+        <div className="max-w-4xl mx-auto text-center space-y-4 relative z-10">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold uppercase tracking-wider">
+            <Sparkles size={12} /> Version 2.0 • 100% Éthique
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-headline font-bold text-secondary-container leading-tight">
+            Votre compagnon d&apos;invocations au quotidien
+          </h2>
+          <p className="text-sm sm:text-lg opacity-90 max-w-2xl mx-auto font-body">
+            Une application fluide pour trouver le dou‘a qu&apos;il vous faut, quand vous en avez besoin. Parcourez la base de données gratuitement ou laissez l&apos;Assistant IA vous orienter selon vos ressentis.
+          </p>
         </div>
-      </section>
+      </div>
 
-      {/* Creator's Message Section */}
-      <section className="py-20 px-6 bg-surface border-b border-outline-variant/20">
-        <div className="max-w-5xl mx-auto bg-surface-container-lowest border border-outline-variant/30 rounded-[32px] p-8 sm:p-12 shadow-sm relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-48 h-48 bg-secondary-container/15 rounded-full -mr-24 -mt-24 blur-[60px]"></div>
-          
-          <div className="grid md:grid-cols-12 gap-8 items-center relative z-10">
-            <div className="md:col-span-7 space-y-6">
-              <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold tracking-widest uppercase">
-                  <Heart size={12} className="text-secondary" />
-                  <span>Philosophie & Transparence</span>
-                </div>
-                <h3 className="font-headline text-2xl sm:text-3xl font-bold text-primary">Le mot du créateur : Pourquoi un assistant IA payant ?</h3>
-              </div>
-
-              <div className="space-y-4 text-on-surface-variant text-sm sm:text-base leading-relaxed">
-                <p>
-                  À l&apos;origine, j&apos;aurais pu laisser cette application classique, sans assistant IA, uniquement avec la recherche par thèmes et par catégories. <strong>Cette partie traditionnelle restera toujours 100% gratuite, sans compte et sans publicité.</strong>
-                </p>
-                <p>
-                  Cependant, je me suis dit que parfois, face à une épreuve, un doute ou une joie intense, nous souhaitons trouver une invocation qui corresponde précisément à notre état d&apos;esprit actuel, sans avoir à chercher manuellement dans des listes statiques. C&apos;est pour cela que j&apos;ai intégré cet Assistant IA : il écoute vos ressentis en langage naturel pour interpréter au mieux votre état d&apos;esprit et vous proposer le dou‘a le plus adéquat.
-                </p>
-                <p>
-                  Comme chaque analyse intelligente génère des frais de calcul d&apos;API facturés directement par les serveurs de l&apos;IA (Google Gemini), l&apos;accès à cet assistant est payant. L&apos;abonnement sert uniquement à couvrir ces frais API techniques en toute transparence, afin de vous proposer cet outil d&apos;aide personnalisé tout en gardant l&apos;application principale totalement gratuite pour tout le monde.
-                </p>
-              </div>
+      {/* Main Content Sections - 6 Steps Refactoring */}
+      <div className="max-w-6xl mx-auto px-6 py-16 space-y-24 md:space-y-32" id="features">
+        
+        {/* STEP 1: Une application complète et gratuite */}
+        <section className="grid lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-7 space-y-6">
+            <div className="flex items-center gap-3">
+              <span className="w-10 h-10 rounded-full bg-primary text-on-primary font-bold flex items-center justify-center text-lg">1</span>
+              <h3 className="text-2xl sm:text-3.5xl font-headline font-bold text-primary">
+                Une application complète et gratuite
+              </h3>
+            </div>
+            <p className="text-lg font-bold text-secondary italic">Déjà tout ce qu&apos;il faut pour invoquer Allah</p>
+            <p className="text-on-surface-variant leading-relaxed">
+              Mon Dou&apos;a est une application complète, utile et 100% gratuite. Vous pouvez accéder instantanément à l&apos;essentiel pour vos moments de recueillement spirituel.
+            </p>
+            
+            <div className="space-y-3 pt-2">
+              <h4 className="text-sm font-bold text-primary uppercase tracking-wider">Vous pouvez déjà :</h4>
+              <ul className="space-y-2.5">
+                {[
+                  "Parcourir les invocations par catégories",
+                  "Lire le texte en arabe authentique",
+                  "Voir la transcription phonétique",
+                  "Lire la traduction complète en français",
+                  "Apprendre et utiliser les douas au quotidien"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-on-surface-variant text-sm">
+                    <CheckCircle size={18} className="text-primary shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
             
-            {/* Creator Message Illustration Card */}
-            <div className="md:col-span-5 relative w-full h-[320px] rounded-3xl overflow-hidden border border-primary/20 shadow-lg">
-              <Image 
-                src="/creator_message.png" 
-                alt="Méditation et sérénité" 
-                fill
-                className="object-cover opacity-80 brightness-95"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 to-transparent"></div>
+            <div className="p-4 bg-surface-container-high/40 border border-outline-variant/30 rounded-2xl text-xs text-on-surface-variant flex gap-3 items-center">
+              <Info size={16} className="text-primary shrink-0" />
+              <span>Tout cela sans publicité intrusive et sans aucune obligation de paiement.</span>
             </div>
           </div>
-        </div>
-      </section>
+          
+          <div className="lg:col-span-5 flex justify-center">
+            {/* Interactive Phone Mockup displaying categories */}
+            <div className="relative w-72 h-[500px] bg-slate-900 rounded-[3rem] p-3 shadow-2xl border-4 border-slate-800 ring-12 ring-slate-900/10 scale-95 md:scale-100">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-slate-900 rounded-b-2xl z-20 flex items-center justify-center">
+                <div className="w-12 h-1 bg-slate-800 rounded-full mb-1"></div>
+              </div>
+              <div className="w-full h-full bg-surface rounded-[2.2rem] overflow-hidden relative flex flex-col pt-8 px-4 border border-outline-variant/20 select-none text-xs">
+                <div className="flex items-center gap-1 text-primary/60 font-bold mb-1">
+                  <Image src="/app_logo.png" alt="Logo" width={14} height={14} className="rounded-full" />
+                  <span>Mon Dou&apos;a</span>
+                </div>
+                <h4 className="font-headline font-bold text-primary text-base mb-2">Catégories</h4>
+                
+                <div className="grid grid-cols-2 gap-2 mb-3">
+                  {[
+                    { n: "Matin & Soir", c: "bg-surface-container-high text-primary" },
+                    { n: "Protection", c: "bg-primary text-on-primary" },
+                    { n: "Pardon", c: "bg-surface-container-high text-primary" },
+                    { n: "Famille", c: "bg-surface-container-high text-primary" },
+                    { n: "Épreuves", c: "bg-surface-container-high text-primary" },
+                    { n: "Reconnaissance", c: "bg-secondary-container text-on-secondary-container" }
+                  ].map((cat, idx) => (
+                    <div key={idx} className={`${cat.c} rounded-xl p-2.5 flex flex-col justify-between aspect-[1.4/1]`}>
+                      <span className="font-headline font-bold text-[10px] leading-tight">{cat.n}</span>
+                      <span className="text-[7px] text-right font-arabic">دعاء</span>
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-2 text-[8px] text-on-surface-variant leading-relaxed">
+                  <p className="font-bold text-primary mb-0.5">Invocation récente :</p>
+                  <p className="font-arabic text-right text-[10px] my-1 text-primary">اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ</p>
+                  <p className="italic text-[7px] opacity-75">\"O Allah, je te demande le pardon et la santé...\"</p>
+                </div>
+                
+                <div className="mt-auto pb-3 flex items-center justify-center gap-1.5 text-[8px] text-on-surface-variant/40">
+                  <div className="w-1.5 h-1.5 rounded-full bg-green-600"></div>
+                  <span>Base de données 100% Locale</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-      {/* Features Section */}
-      <section id="features" className="py-24 px-6 max-w-6xl mx-auto space-y-16">
-        <div className="text-center space-y-3 max-w-xl mx-auto">
-          <h3 className="text-xs font-bold uppercase tracking-widest text-secondary">Fonctionnalités clés</h3>
-          <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary">Conçu pour votre sérénité spirituelle</h2>
-        </div>
-
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
-          {/* Features Illustration Card */}
-          <div className="lg:col-span-5 relative w-full h-[450px] rounded-[40px] overflow-hidden border border-primary/20 shadow-2xl">
-            <Image 
-              src="/authentic_hadith.png" 
-              alt="Hadith authentiques" 
-              fill
-              className="object-cover opacity-90 brightness-95"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/10 to-transparent"></div>
+        {/* STEP 2: Pourquoi un assistant IA ? */}
+        <section className="grid lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-5 order-2 lg:order-1 flex justify-center">
+            {/* Visual representation of user feelings/thoughts */}
+            <div className="w-full max-w-md bg-surface-container-lowest border border-outline-variant/30 rounded-[2.5rem] p-6 sm:p-8 shadow-sm space-y-6">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+                  <Sparkles size={18} />
+                </div>
+                <h4 className="font-headline font-bold text-primary">Comment vous sentez-vous ?</h4>
+              </div>
+              
+              <div className="space-y-3">
+                {[
+                  { text: "Je suis stressé.", emoji: "😟" },
+                  { text: "Je n'arrive pas à dormir.", emoji: "🌙" },
+                  { text: "J'ai peur pour l'avenir.", emoji: "⏳" },
+                  { text: "Je veux remercier Allah.", emoji: "❤️" },
+                  { text: "Je cherche une invocation pour demander pardon.", emoji: "🤲" }
+                ].map((thought, idx) => (
+                  <motion.div 
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="flex items-center gap-3 bg-surface-container-high/40 hover:bg-surface-container-high border border-outline-variant/20 rounded-2xl px-4 py-3 text-sm text-on-surface-variant font-medium cursor-pointer transition-colors duration-300"
+                  >
+                    <span className="text-lg">{thought.emoji}</span>
+                    <span>{thought.text}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
 
+          <div className="lg:col-span-7 order-1 lg:order-2 space-y-6">
+            <div className="flex items-center gap-3">
+              <span className="w-10 h-10 rounded-full bg-primary text-on-primary font-bold flex items-center justify-center text-lg">2</span>
+              <h3 className="text-2xl sm:text-3.5xl font-headline font-bold text-primary">
+                Pourquoi un assistant IA ?
+              </h3>
+            </div>
+            <p className="text-lg font-bold text-secondary italic">Parce que parfois, on ne sait pas quelle invocation chercher</p>
+            <p className="text-on-surface-variant leading-relaxed">
+              Face à une épreuve, une angoisse ou un moment de bonheur, trouver le bon dou&apos;a peut être intimidant. L&apos;assistant IA vous permet d&apos;écrire ce que vous ressentez avec vos propres mots et vous aide à trouver une invocation adaptée à votre situation.
+            </p>
+            
+            <div className="p-5 bg-primary/5 border border-primary/20 rounded-3xl flex items-start gap-4">
+              <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary shrink-0">
+                <Shield size={20} />
+              </div>
+              <div className="space-y-1">
+                <h5 className="text-sm font-bold text-primary uppercase tracking-wider">Avertissement Important</h5>
+                <p className="text-xs text-on-surface-variant leading-relaxed">
+                  L&apos;IA n&apos;est pas une autorité religieuse. Elle ne crée pas de douas et ne donne pas d&apos;avis juridiques. Elle vous aide simplement à vous orienter dans la base de données d&apos;invocations authentiques.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* STEP 3: Pourquoi cette option est payante ? */}
+        <section className="space-y-12">
+          <div className="max-w-3xl mx-auto text-center space-y-4">
+            <div className="flex items-center justify-center gap-3">
+              <span className="w-10 h-10 rounded-full bg-primary text-on-primary font-bold flex items-center justify-center text-lg">3</span>
+              <h3 className="text-2xl sm:text-3.5xl font-headline font-bold text-primary">
+                Pourquoi cette option est payante ?
+              </h3>
+            </div>
+            <p className="text-lg font-bold text-secondary italic">Parce que l&apos;IA a un coût technique réel</p>
+            <p className="text-on-surface-variant max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+              L&apos;intelligence artificielle consomme des ressources de calcul importantes. Chaque fois que vous confiez vos ressentis à l&apos;assistant, les serveurs externes traitent votre message pour en extraire le sens spirituel.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { title: "Analyse de votre message", desc: "L'IA comprend vos propres mots et votre état émotionnel actuel.", icon: <Cpu size={24} /> },
+              { title: "Modèle linguistique IA", desc: "Traitement confidentiel et sécurisé par le modèle Gemini API de Google.", icon: <Bot size={24} /> },
+              { title: "Génération de réponse", desc: "Association sémantique avec la base de données d'invocations.", icon: <Sparkles size={24} /> },
+              { title: "Coûts facturés", desc: "Ressources informatiques payées à l'usage aux fournisseurs d'infrastructure.", icon: <Lock size={24} /> }
+            ].map((step, idx) => (
+              <div key={idx} className="bg-surface-container-lowest border border-outline-variant/30 rounded-3xl p-6 space-y-4 hover:shadow-md transition-all duration-300 relative">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
+                  {step.icon}
+                </div>
+                <h4 className="font-headline font-bold text-primary text-base">{step.title}</h4>
+                <p className="text-xs text-on-surface-variant leading-relaxed">{step.desc}</p>
+                
+                {idx < 3 && (
+                  <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-10 text-outline-variant font-bold text-xl">
+                    ➔
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div className="max-w-2xl mx-auto p-5 bg-secondary-container/10 border border-secondary/20 rounded-3xl text-center space-y-2">
+            <p className="text-sm font-bold text-secondary">
+              Chaque utilisation de l&apos;assistant IA entraîne des frais techniques facturés par la technologie utilisée (Gemini API de Google).
+            </p>
+            <p className="text-xs text-on-surface-variant font-medium">
+              Le paiement ne concerne pas les invocations, mais uniquement l&apos;accès à cette fonctionnalité avancée de recherche intelligente.
+            </p>
+          </div>
+        </section>
+
+        {/* STEP 4: Une tarification simple et honnête */}
+        <section id="tarification" className="space-y-12 bg-surface-container-high/30 border border-outline-variant/30 rounded-[2.5rem] p-8 sm:p-12 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-secondary-container/10 rounded-full blur-[80px] -z-10"></div>
+          
+          <div className="max-w-3xl mx-auto text-center space-y-4">
+            <div className="flex items-center justify-center gap-3">
+              <span className="w-10 h-10 rounded-full bg-primary text-on-primary font-bold flex items-center justify-center text-lg">4</span>
+              <h3 className="text-2xl sm:text-3.5xl font-headline font-bold text-primary">
+                Une tarification simple et honnête
+              </h3>
+            </div>
+            <p className="text-lg font-bold text-secondary italic">Un prix juste pour couvrir les frais, rien de plus</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto items-stretch">
+            {/* Offer Monthly */}
+            <div className="bg-surface-container-lowest border-2 border-outline-variant/30 rounded-[2rem] p-8 flex flex-col justify-between hover:border-primary transition-all duration-300 relative shadow-sm">
+              <div className="space-y-4">
+                <span className="inline-block px-3 py-1 rounded-full bg-surface-container-high text-primary text-[10px] font-bold uppercase tracking-wider">
+                  Moins qu&apos;un café par mois ☕
+                </span>
+                <h4 className="font-headline font-bold text-primary text-xl">Mensuel</h4>
+                <div className="flex items-baseline gap-1 text-primary">
+                  <span className="text-4xl font-bold font-headline">1,99 €</span>
+                  <span className="text-sm font-medium">/ mois</span>
+                </div>
+                <p className="text-xs text-on-surface-variant leading-relaxed">
+                  Idéal pour tester l&apos;assistant IA et l&apos;utiliser ponctuellement lors de vos besoins passagers.
+                </p>
+              </div>
+              
+              <Link 
+                href="https://buy.stripe.com/3cIcN59ouaET5Jx6yOgbm0i" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 w-full py-3.5 rounded-full bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container font-bold text-center text-sm shadow-md hover:shadow-lg transition-all duration-300 active:scale-95"
+              >
+                Activer l&apos;accès mensuel
+              </Link>
+            </div>
+
+            {/* Offer Yearly */}
+            <div className="bg-surface-container-lowest border-2 border-primary rounded-[2rem] p-8 flex flex-col justify-between hover:shadow-lg transition-all duration-300 relative shadow-md">
+              <div className="absolute top-0 right-8 transform -translate-y-1/2">
+                <span className="px-3.5 py-1 rounded-full bg-secondary text-on-secondary text-[10px] font-bold uppercase tracking-wider shadow-md">
+                  Recommandé 🌟
+                </span>
+              </div>
+              
+              <div className="space-y-4">
+                <span className="inline-block px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wider">
+                  Économisez plus !
+                </span>
+                <h4 className="font-headline font-bold text-primary text-xl">Annuel</h4>
+                <div className="flex items-baseline gap-1 text-primary">
+                  <span className="text-4xl font-bold font-headline">12,99 €</span>
+                  <span className="text-sm font-medium">/ an</span>
+                </div>
+                <p className="text-xs text-on-surface-variant leading-relaxed">
+                  L&apos;offre la plus sereine et économique pour vous accompagner tout au long de l&apos;année sans interruption.
+                </p>
+              </div>
+              
+              <Link 
+                href="https://buy.stripe.com/8x2fZhdEK14j6NB6yOgbm0j" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 w-full py-3.5 rounded-full bg-secondary text-on-secondary hover:bg-secondary/90 font-bold text-center text-sm shadow-md hover:shadow-lg transition-all duration-300 active:scale-95"
+              >
+                Activer l&apos;accès annuel
+              </Link>
+            </div>
+          </div>
+
+          <div className="max-w-2xl mx-auto space-y-4 pt-6 border-t border-outline-variant/30">
+            <h4 className="text-xs font-bold text-primary uppercase tracking-widest text-center">
+              Votre abonnement sert uniquement à :
+            </h4>
+            <div className="grid sm:grid-cols-3 gap-4 text-center">
+              {[
+                "Couvrir les frais techniques de l'IA",
+                "Maintenir le service disponible en ligne",
+                "Améliorer continuellement l'expérience"
+              ].map((item, i) => (
+                <div key={i} className="bg-surface-container-lowest/50 border border-outline-variant/20 rounded-2xl p-3 text-xs text-on-surface-variant">
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* STEP 5: Le bon message à retenir */}
+        <section className="space-y-12">
+          <div className="max-w-3xl mx-auto text-center space-y-4">
+            <div className="flex items-center justify-center gap-3">
+              <span className="w-10 h-10 rounded-full bg-primary text-on-primary font-bold flex items-center justify-center text-lg">5</span>
+              <h3 className="text-2xl sm:text-3.5xl font-headline font-bold text-primary">
+                Le bon message à retenir
+              </h3>
+            </div>
+            <p className="text-lg font-bold text-secondary italic">Vous restez libre, toujours</p>
+          </div>
+
+          {/* Workflow Diagram */}
+          <div className="max-w-4xl mx-auto bg-surface-container-lowest border border-outline-variant/30 rounded-[2.5rem] p-8 sm:p-12 shadow-sm space-y-8">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
+              <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 text-center min-w-[200px]">
+                <h5 className="font-headline font-bold text-primary text-sm mb-1">Application gratuite</h5>
+                <p className="text-[10px] text-on-surface-variant">100% complète et utilisable sans frais</p>
+              </div>
+              
+              <div className="text-primary font-bold text-lg rotate-90 md:rotate-0">➔</div>
+              
+              <div className="bg-secondary-container/20 border border-secondary/20 rounded-2xl p-4 text-center min-w-[200px]">
+                <h5 className="font-headline font-bold text-secondary text-sm mb-1">Assistant IA optionnel</h5>
+                <p className="text-[10px] text-on-surface-variant">Uniquement si vous en ressentez le besoin</p>
+              </div>
+
+              <div className="text-primary font-bold text-lg rotate-90 md:rotate-0">➔</div>
+
+              <div className="bg-surface-container-high border border-outline-variant/20 rounded-2xl p-4 text-center min-w-[200px]">
+                <h5 className="font-headline font-bold text-primary text-sm mb-1">Vous choisissez</h5>
+                <p className="text-[10px] text-on-surface-variant">Selon votre propre situation spirituelle</p>
+              </div>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto pt-6 border-t border-outline-variant/20">
+              {[
+                "Utilisez gratuitement toutes les invocations.",
+                "Activez l'assistant IA seulement si vous le souhaitez.",
+                "Zéro publicité intrusive pour un recueillement pur.",
+                "Respect strict de votre vie privée (pas de tracking)."
+              ].map((value, idx) => (
+                <div key={idx} className="flex items-center gap-2.5 text-xs font-semibold text-on-surface-variant">
+                  <CheckCircle size={16} className="text-secondary shrink-0" />
+                  <span>{value}</span>
+                </div>
+              ))}
+            </div>
+
+            <p className="text-center font-headline font-bold text-secondary italic text-base sm:text-lg pt-4">
+              « Notre objectif : vous accompagner, pas vous vendre. »
+            </p>
+          </div>
+        </section>
+
+        {/* STEP 6: En résumé */}
+        <section className="grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 space-y-6">
-            <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-[2rem] p-6 shadow-sm hover:shadow-md transition-all duration-300 flex items-start gap-4">
-              <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary shrink-0">
-                <Sparkles size={24} />
+            <div className="flex items-center gap-3">
+              <span className="w-10 h-10 rounded-full bg-primary text-on-primary font-bold flex items-center justify-center text-lg">6</span>
+              <h3 className="text-2xl sm:text-3.5xl font-headline font-bold text-primary">
+                En résumé
+              </h3>
+            </div>
+            <p className="text-lg font-bold text-secondary italic">Mon Dou&apos;a est là pour vous, gratuitement.</p>
+            
+            <div className="space-y-4">
+              <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-5 flex items-start gap-4 shadow-sm">
+                <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary shrink-0">
+                  <Gift size={20} />
+                </div>
+                <div>
+                  <h4 className="font-headline font-bold text-primary text-sm mb-1">Application complète et gratuite</h4>
+                  <p className="text-xs text-on-surface-variant leading-relaxed">
+                    Toutes les catégories, l&apos;arabe, le français et la phonétique sont accessibles sans frais.
+                  </p>
+                </div>
               </div>
-              <div>
-                <h4 className="text-lg font-headline font-bold text-primary mb-2">Recherche Intuitive</h4>
-                <p className="text-on-surface-variant text-sm leading-relaxed">
-                  Exprimez vos émotions (anxiété, tristesse, joie) en langage naturel, ou sélectionnez l&apos;une des nombreuses suggestions pour trouver le bon dou&apos;a.
-                </p>
+
+              <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-5 flex items-start gap-4 shadow-sm">
+                <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary shrink-0">
+                  <Bot size={20} />
+                </div>
+                <div>
+                  <h4 className="font-headline font-bold text-primary text-sm mb-1">Assistant IA Premium (optionnel)</h4>
+                  <p className="text-xs text-on-surface-variant leading-relaxed">
+                    Un service optionnel pour les moments de doute ou de recherche d&apos;aide personnalisée.
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-5 flex items-start gap-4 shadow-sm">
+                <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary shrink-0">
+                  <Heart size={20} />
+                </div>
+                <div>
+                  <h4 className="font-headline font-bold text-primary text-sm mb-1">Équitable et transparent</h4>
+                  <p className="text-xs text-on-surface-variant leading-relaxed">
+                    Le tarif payant sert uniquement à amortir les factures de ressources de calcul de l&apos;IA de Google.
+                  </p>
+                </div>
               </div>
             </div>
 
-            <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-[2rem] p-6 shadow-sm hover:shadow-md transition-all duration-300 flex items-start gap-4">
-              <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary shrink-0">
-                <BookOpen size={24} />
-              </div>
-              <div>
-                <h4 className="text-lg font-headline font-bold text-primary mb-2">Authenticité Garantie</h4>
-                <p className="text-on-surface-variant text-sm leading-relaxed">
-                  Consultez les textes originaux en arabe avec transcription phonétique complète, traductions précises et références aux recueils authentiques de hadiths.
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-[2rem] p-6 shadow-sm hover:shadow-md transition-all duration-300 flex items-start gap-4">
-              <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary shrink-0">
-                <Heart size={24} />
-              </div>
-              <div>
-                <h4 className="text-lg font-headline font-bold text-primary mb-2">Favoris Personnels</h4>
-                <p className="text-on-surface-variant text-sm leading-relaxed">
-                  Mémorisez et organisez vos invocations favorites pour y accéder en un instant dès que le besoin d&apos;apaisement ou de rappel spirituel se présente.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Activation Steps Section */}
-      <section className="bg-surface-container py-24 px-6">
-        <div className="max-w-6xl mx-auto space-y-16">
-          <div className="text-center space-y-3 max-w-xl mx-auto">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-secondary">Parcours simple</h3>
-            <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary">Comment activer l&apos;accès Premium ?</h2>
-            <p className="text-sm text-on-surface-variant">Un processus rapide, sécurisé et respectueux de votre vie privée.</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 relative">
-            {/* Step 1 */}
-            <div className="bg-surface-container-lowest border border-outline-variant/20 rounded-3xl p-8 relative space-y-4">
-              <div className="w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold text-lg">
-                1
-              </div>
-              <h4 className="text-lg font-headline font-bold text-primary">Souscrire sur Stripe</h4>
-              <p className="text-xs text-on-surface-variant leading-relaxed">
-                Sélectionnez l&apos;offre mensuelle ou annuelle. Vous serez redirigé vers l&apos;espace de paiement 100% chiffré et sécurisé de Stripe.
-              </p>
-            </div>
-
-            {/* Step 2 */}
-            <div className="bg-surface-container-lowest border border-outline-variant/20 rounded-3xl p-8 relative space-y-4">
-              <div className="w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold text-lg">
-                2
-              </div>
-              <h4 className="text-lg font-headline font-bold text-primary">Copier le code</h4>
-              <p className="text-xs text-on-surface-variant leading-relaxed">
-                Une fois le paiement validé, Stripe affiche immédiatement votre code secret d&apos;activation sur votre écran et vous l&apos;envoie par e-mail.
-              </p>
-            </div>
-
-            {/* Step 3 */}
-            <div className="bg-surface-container-lowest border border-outline-variant/20 rounded-3xl p-8 relative space-y-4">
-              <div className="w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold text-lg">
-                3
-              </div>
-              <h4 className="text-lg font-headline font-bold text-primary">Coller dans l&apos;App</h4>
-              <p className="text-xs text-on-surface-variant leading-relaxed">
-                Rendez-vous dans l&apos;onglet <strong>Paramètres</strong> de l&apos;application, entrez le code secret dans la section &quot;Mon Abonnement&quot; et validez.
+            <div className="pt-4 space-y-4">
+              <Link 
+                href="/app" 
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container font-bold text-base shadow-xl shadow-primary/10 transition-all duration-300 active:scale-95"
+              >
+                Ouvrir Mon Dou&apos;a maintenant
+                <ArrowRight size={18} />
+              </Link>
+              <p className="text-xs text-on-surface-variant italic font-medium">
+                Si l&apos;assistant IA vous aide, soutenez-le. Sinon, continuez gratuitement. Le choix vous appartient, toujours.
               </p>
             </div>
           </div>
-        </div>
-      </section>
+
+          <div className="lg:col-span-5 flex justify-center">
+            {/* Final Phone Mockup with Islamic dome or banner */}
+            <div className="relative w-72 h-[500px] bg-slate-900 rounded-[3rem] p-3 shadow-2xl border-4 border-slate-800 ring-12 ring-slate-900/10 scale-95 md:scale-100">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-slate-900 rounded-b-2xl z-20 flex items-center justify-center">
+                <div className="w-12 h-1 bg-slate-800 rounded-full mb-1"></div>
+              </div>
+              <div className="w-full h-full bg-primary rounded-[2.2rem] overflow-hidden relative flex flex-col justify-between pt-8 pb-4 px-4 text-on-primary select-none text-xs">
+                
+                {/* Background design inside mockup */}
+                <div className="absolute inset-0 w-full h-full -z-10">
+                  <Image 
+                    src="/app_banner.png" 
+                    alt="Motifs de fond" 
+                    fill
+                    className="object-cover opacity-15"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-primary via-transparent to-primary"></div>
+                </div>
+
+                <div className="flex justify-center mt-6">
+                  <Image src="/app_logo.png" alt="Logo" width={56} height={56} className="rounded-full shadow-lg border border-secondary-container/20" />
+                </div>
+
+                <div className="text-center space-y-2 px-2">
+                  <h4 className="font-headline font-bold text-lg text-secondary-container">Mon Dou‘a</h4>
+                  <p className="font-arabic text-sm text-secondary-container">دعائي</p>
+                  <p className="text-[10px] leading-relaxed opacity-95 pt-2">
+                    L&apos;invocation qu&apos;il vous faut, au moment où vous en avez besoin.
+                  </p>
+                </div>
+
+                <div className="bg-surface/10 border border-white/10 rounded-2xl p-3 text-center text-[9px] backdrop-blur-sm">
+                  <span className="font-bold block text-secondary-container mb-0.5">Besoin d&apos;orientation ?</span>
+                  Exprimez vos ressentis en toute simplicité.
+                </div>
+
+                <div className="text-[8px] text-center opacity-40">
+                  Le choix vous appartient, toujours. 💚
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-20 px-6 max-w-4xl mx-auto space-y-12">
-        <div className="text-center space-y-3">
-          <h3 className="text-xs font-bold uppercase tracking-widest text-secondary">Des réponses à vos questions</h3>
-          <h2 className="text-3xl font-headline font-bold text-primary">Foire Aux Questions</h2>
-        </div>
+      <section className="bg-surface-container py-20 px-6">
+        <div className="max-w-4xl mx-auto space-y-12">
+          <div className="text-center space-y-3">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-secondary">Des réponses à vos questions</h3>
+            <h2 className="text-3xl font-headline font-bold text-primary">Foire Aux Questions</h2>
+          </div>
 
-        <div className="space-y-4">
-          {faqs.map((faq, i) => (
-            <div 
-              key={i} 
-              className="bg-surface-container-lowest border border-outline-variant/20 rounded-3xl overflow-hidden transition-all duration-300"
-            >
-              <button 
-                onClick={() => toggleFaq(i)}
-                className="w-full px-6 py-5 flex justify-between items-center text-left hover:bg-surface-container-low transition-colors"
-              >
-                <span className="font-headline font-bold text-primary md:text-lg">{faq.q}</span>
-                <ChevronDown 
-                  size={20} 
-                  className={`text-on-surface-variant/60 transition-transform duration-300 ${activeFaq === i ? "rotate-180" : ""}`} 
-                />
-              </button>
-              
+          <div className="space-y-4">
+            {faqs.map((faq, i) => (
               <div 
-                className={`transition-all duration-300 overflow-hidden ${activeFaq === i ? "max-h-48 border-t border-outline-variant/10" : "max-h-0"}`}
+                key={i} 
+                className="bg-surface-container-lowest border border-outline-variant/20 rounded-3xl overflow-hidden transition-all duration-300"
               >
-                <p className="p-6 text-sm text-on-surface-variant leading-relaxed">
-                  {faq.a}
-                </p>
+                <button 
+                  onClick={() => toggleFaq(i)}
+                  className="w-full px-6 py-5 flex justify-between items-center text-left hover:bg-surface-container-low transition-colors"
+                >
+                  <span className="font-headline font-bold text-primary md:text-lg">{faq.q}</span>
+                  <ChevronDown 
+                    size={20} 
+                    className={`text-on-surface-variant/60 transition-transform duration-300 ${activeFaq === i ? "rotate-180" : ""}`} 
+                  />
+                </button>
+                
+                <div 
+                  className={`transition-all duration-300 overflow-hidden ${activeFaq === i ? "max-h-48 border-t border-outline-variant/10" : "max-h-0"}`}
+                >
+                  <p className="p-6 text-sm text-on-surface-variant leading-relaxed">
+                    {faq.a}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Footer / CTA Banner */}
-      <footer className="relative bg-surface-container-lowest border-t border-outline-variant/30 py-20 px-6 text-center overflow-hidden">
-        {/* Serene night background overlay */}
-        <div className="absolute inset-0 w-full h-full -z-10">
-          <Image 
-            src="/peaceful_night.png" 
-            alt="Nuit paisible spirituelle" 
-            fill
-            className="object-cover opacity-[0.07] brightness-75 grayscale hover:grayscale-0 transition-all duration-1000"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-surface-container-lowest via-transparent to-surface-container-lowest"></div>
-        </div>
-
-        <div className="max-w-2xl mx-auto space-y-8 relative z-10">
+      {/* Footer */}
+      <footer className="relative bg-surface-container-lowest border-t border-outline-variant/30 py-16 px-6 text-center overflow-hidden">
+        <div className="max-w-2xl mx-auto space-y-6 relative z-10">
           <Image 
             src="/app_logo.png" 
             alt="Logo" 
@@ -442,16 +603,16 @@ export default function LandingPage() {
             height={64} 
             className="mx-auto rounded-full shadow-md"
           />
-          <h2 className="text-3xl font-headline font-bold text-primary">Un esprit serein en quelques clics</h2>
-          <p className="text-on-surface-variant max-w-md mx-auto">
+          <h2 className="text-2xl font-headline font-bold text-primary">Un esprit serein en quelques clics</h2>
+          <p className="text-xs text-on-surface-variant max-w-md mx-auto">
             Accédez instantanément à l&apos;ensemble de l&apos;application sans aucune inscription ni publicité intrusive.
           </p>
           <div>
-            <Link href="/app" className="bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container px-10 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95">
+            <Link href="/app" className="bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container px-10 py-3.5 rounded-full font-bold text-base shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95">
               Ouvrir l&apos;application
             </Link>
           </div>
-          <p className="text-xs text-on-surface-variant/40 pt-8">
+          <p className="text-[10px] text-on-surface-variant/40 pt-6">
             © 2026 Mon Dou‘a Adéquat. Développé bénévolement avec éthique et respect de vos données personnelles.
           </p>
         </div>
@@ -459,3 +620,4 @@ export default function LandingPage() {
     </div>
   );
 }
+
