@@ -29,7 +29,7 @@ export function Drawer() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={toggleDrawer}
-          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[60]"
+          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[110]"
         />
       )}
       {isDrawerOpen && (
@@ -40,7 +40,7 @@ export function Drawer() {
           exit={{ x: isRTL ? '100%' : '-100%' }}
           transition={{ type: 'spring', damping: 25, stiffness: 200 }}
           className={cn(
-            "fixed top-0 bottom-0 w-80 bg-surface z-[70] shadow-2xl flex flex-col",
+            "fixed top-0 bottom-0 w-80 bg-surface z-[120] shadow-2xl flex flex-col",
             isRTL ? "right-0 rounded-l-[2.5rem]" : "left-0 rounded-r-[2.5rem]"
           )}
         >
