@@ -7,14 +7,45 @@ import { useState } from 'react';
 import { 
   Sparkles, Heart, Shield, BookOpen, Smartphone, 
   ChevronDown, CheckCircle, ArrowRight, Coffee, Cpu, 
-  Gift, Bot, Lock, Info 
+  Gift, Bot, Lock, Info, Share2, Scale, X, ExternalLink
 } from 'lucide-react';
 
 export default function LandingPage() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const [isLegalModalOpen, setIsLegalModalOpen] = useState(false);
+  const [legalTab, setLegalTab] = useState<'cgv' | 'mentions' | 'privacy'>('mentions');
+  const [shareTooltip, setShareTooltip] = useState(false);
 
   const toggleFaq = (index: number) => {
     setActiveFaq(activeFaq === index ? null : index);
+  };
+
+  const handleShare = async () => {
+    const shareData = {
+      title: 'Mon Dou‘a Adéquat',
+      text: 'Trouvez l’invocation qui correspond exactement à vos ressentis en langage naturel.',
+      url: 'https://doua.novaskill.tech',
+    };
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        console.log('Share cancelled or failed:', err);
+      }
+    } else {
+      try {
+        await navigator.clipboard.writeText(shareData.url);
+        setShareTooltip(true);
+        setTimeout(() => setShareTooltip(false), 2000);
+      } catch (err) {
+        console.log('Clipboard error:', err);
+      }
+    }
+  };
+
+  const openLegalModal = (tab: 'cgv' | 'mentions' | 'privacy') => {
+    setLegalTab(tab);
+    setIsLegalModalOpen(true);
   };
 
   const faqs = [
@@ -44,11 +75,6 @@ export default function LandingPage() {
     }
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 100 } }
-  };
-
   return (
     <div className="min-h-screen bg-surface text-on-surface selection:bg-secondary-container selection:text-on-secondary-container overflow-x-hidden">
       {/* Header */}
@@ -66,15 +92,32 @@ export default function LandingPage() {
               Mon Dou‘a <span className="text-secondary font-medium font-arabic">دعائي</span>
             </h1>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             <Link href="#features" className="hidden md:block text-sm font-bold text-on-surface-variant hover:text-primary transition-colors">
               Découvrir
             </Link>
             <Link href="#tarification" className="hidden md:block text-sm font-bold text-on-surface-variant hover:text-primary transition-colors">
               Tarification
             </Link>
-            <Link href="/app" className="bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container px-6 py-2.5 rounded-full font-bold text-sm shadow-md hover:shadow-lg transition-all duration-300 active:scale-95">
-              Ouvrir l&apos;application
+            
+            {/* Share Button with Tooltip */}
+            <div className="relative">
+              <button 
+                onClick={handleShare}
+                className="p-2 rounded-full hover:bg-surface-container-high/60 text-primary transition-all duration-200"
+                title="Partager l'application"
+              >
+                <Share2 size={20} />
+              </button>
+              {shareTooltip && (
+                <span className="absolute top-12 right-0 bg-primary text-on-primary text-[10px] font-bold px-2.5 py-1 rounded-lg shadow-md whitespace-nowrap animate-bounce">
+                  Lien copié ! 💚
+                </span>
+              )}
+            </div>
+
+            <Link href="/app" className="bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container px-5 md:px-6 py-2 rounded-full font-bold text-xs md:text-sm shadow-md hover:shadow-lg transition-all duration-300 active:scale-95">
+              Ouvrir l&apos;app
             </Link>
           </div>
         </nav>
@@ -607,17 +650,153 @@ export default function LandingPage() {
           <p className="text-xs text-on-surface-variant max-w-md mx-auto">
             Accédez instantanément à l&apos;ensemble de l&apos;application sans aucune inscription ni publicité intrusive.
           </p>
-          <div>
+          
+          <div className="flex justify-center gap-3">
             <Link href="/app" className="bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container px-10 py-3.5 rounded-full font-bold text-base shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95">
               Ouvrir l&apos;application
             </Link>
           </div>
+          
+          {/* Legal and Compliance Links */}
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs font-semibold text-on-surface-variant/70 pt-6">
+            <button onClick={() => openLegalModal('mentions')} className="hover:text-primary transition-colors">Mentions Légales</button>
+            <span className="text-outline-variant">|</span>
+            <button onClick={() => openLegalModal('cgv')} className="hover:text-primary transition-colors">Conditions Générales de Vente (CGV)</button>
+            <span className="text-outline-variant">|</span>
+            <button onClick={() => openLegalModal('privacy')} className="hover:text-primary transition-colors">Charte de Confidentialité (RGPD)</button>
+          </div>
+
           <p className="text-[10px] text-on-surface-variant/40 pt-6">
-            © 2026 Mon Dou‘a Adéquat. Développé bénévolement avec éthique et respect de vos données personnelles.
+            © 2026 Mon Dou‘a Adéquat - novaskill tech. Développé bénévolement avec éthique et respect de vos données personnelles.
           </p>
         </div>
       </footer>
+
+      {/* Legal and Compliance tabbed Overlay Modal */}
+      {isLegalModalOpen && (
+        <div className="fixed inset-0 bg-slate-900/50 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fadeIn">
+          <div className="bg-surface border border-outline-variant/30 w-full max-w-3xl rounded-[2rem] shadow-2xl flex flex-col max-h-[85vh] overflow-hidden">
+            
+            {/* Modal Header */}
+            <div className="p-6 border-b border-outline-variant/20 flex justify-between items-center bg-surface-container-high/40">
+              <div className="flex items-center gap-2 text-primary">
+                <Scale size={20} />
+                <h3 className="font-headline font-bold text-lg">Informations Légales & Conformité</h3>
+              </div>
+              <button 
+                onClick={() => setIsLegalModalOpen(false)}
+                className="p-2 hover:bg-surface-container rounded-full text-on-surface-variant transition-colors"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            {/* Modal Tabs */}
+            <div className="flex border-b border-outline-variant/20 bg-surface-container-lowest text-xs sm:text-sm font-bold">
+              <button 
+                onClick={() => setLegalTab('mentions')}
+                className={`flex-1 py-3 border-b-2 text-center transition-colors ${legalTab === 'mentions' ? 'border-primary text-primary' : 'border-transparent text-on-surface-variant hover:text-primary'}`}
+              >
+                Mentions Légales
+              </button>
+              <button 
+                onClick={() => setLegalTab('cgv')}
+                className={`flex-1 py-3 border-b-2 text-center transition-colors ${legalTab === 'cgv' ? 'border-primary text-primary' : 'border-transparent text-on-surface-variant hover:text-primary'}`}
+              >
+                CGV
+              </button>
+              <button 
+                onClick={() => setLegalTab('privacy')}
+                className={`flex-1 py-3 border-b-2 text-center transition-colors ${legalTab === 'privacy' ? 'border-primary text-primary' : 'border-transparent text-on-surface-variant hover:text-primary'}`}
+              >
+                Confidentialité (RGPD)
+              </button>
+            </div>
+
+            {/* Modal Content Scrollable Area */}
+            <div className="p-6 overflow-y-auto text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-6">
+              
+              {/* Mentions Légales Tab */}
+              {legalTab === 'mentions' && (
+                <div className="space-y-4">
+                  <h4 className="font-headline font-bold text-primary text-base">1. Éditeur de l&apos;application</h4>
+                  <p>
+                    L&apos;application <strong>Mon Dou‘a Adéquat</strong> et sa landing page sont éditées par <strong>novaskill tech</strong>.
+                    <br />
+                    Contact : <a href="mailto:support@novaskill.tech" className="text-primary underline">support@novaskill.tech</a>
+                  </p>
+                  <h4 className="font-headline font-bold text-primary text-base">2. Hébergement</h4>
+                  <p>
+                    L&apos;application est hébergée sur l&apos;infrastructure cloud mondiale de la société <strong>Vercel Inc.</strong> :
+                    <br />
+                    Adresse : Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA.
+                    <br />
+                    Site web : <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-primary underline inline-flex items-center gap-0.5">vercel.com <ExternalLink size={12} /></a>
+                  </p>
+                  <h4 className="font-headline font-bold text-primary text-base">3. Propriété Intellectuelle</h4>
+                  <p>
+                    Tous les contenus textuels d&apos;explication et la structure logique sont la propriété de <strong>novaskill tech</strong>. Les invocations arabes, phonétiques et traductions proviennent de sources religieuses publiques libres de droits.
+                  </p>
+                </div>
+              )}
+
+              {/* CGV Tab */}
+              {legalTab === 'cgv' && (
+                <div className="space-y-4">
+                  <h4 className="font-headline font-bold text-primary text-base">1. Description des Services</h4>
+                  <p>
+                    L&apos;accès à la base de données standard de l&apos;application est 100% gratuit. L&apos;abonnement payant octroie uniquement un droit d&apos;accès à la fonctionnalité de recherche assistée par Intelligence Artificielle (Assistant IA).
+                  </p>
+                  <h4 className="font-headline font-bold text-primary text-base">2. Modalités de Tarification et Paiement</h4>
+                  <p>
+                    Deux formules sont proposées via la plateforme sécurisée de notre prestataire Stripe :
+                    <br />
+                    - **Mensuel** : 1,99 € TTC par mois, avec reconduction tacite.
+                    <br />
+                    - **Annuel** : 12,99 € TTC par an, avec reconduction tacite.
+                  </p>
+                  <h4 className="font-headline font-bold text-primary text-base">3. Droit de rétractation</h4>
+                  <p>
+                    Conformément à l&apos;article **L.221-28 13° du Code de la consommation français**, le droit de rétractation ne s&apos;applique pas aux services de fourniture de contenu numérique indépendant de tout support matériel dont l&apos;exécution a commencé immédiatement après accord préalable exprès du consommateur et renoncement exprès à son droit de rétractation. En activant l&apos;Assistant IA avec votre code d&apos;accès, vous acceptez l&apos;exécution immédiate et renoncez à ce droit.
+                  </p>
+                  <h4 className="font-headline font-bold text-primary text-base">4. Résiliation & Contact</h4>
+                  <p>
+                    L&apos;abonnement peut être résilié à tout moment sans aucun frais supplémentaire directement depuis votre espace de paiement Stripe ou en envoyant une simple demande par email à : <a href="mailto:support@novaskill.tech" className="text-primary underline">support@novaskill.tech</a>. Votre accès restera actif jusqu&apos;à la fin de la période de facturation en cours.
+                  </p>
+                </div>
+              )}
+
+              {/* RGPD Tab */}
+              {legalTab === 'privacy' && (
+                <div className="space-y-4">
+                  <h4 className="font-headline font-bold text-primary text-base">1. Minimisation des données</h4>
+                  <p>
+                    Nous ne collectons aucune donnée personnelle nominative. L&apos;application fonctionne sans création de compte. Vos douas sauvegardés et vos préférences restent exclusivement stockés localement sur votre appareil (IndexedDB).
+                  </p>
+                  <h4 className="font-headline font-bold text-primary text-base">2. Traitement par l&apos;Intelligence Artificielle</h4>
+                  <p>
+                    Lorsque vous utilisez l&apos;Assistant IA, la phrase décrivant vos sentiments est transmise de manière anonyme à l&apos;API de Google Gemini. Aucune donnée d&apos;identité (nom, adresse email, adresse IP) n&apos;est transmise ou associée à vos requêtes.
+                  </p>
+                  <h4 className="font-headline font-bold text-primary text-base">3. Droits des utilisateurs (DSAR)</h4>
+                  <p>
+                    Étant donné que toutes vos données (historique et favoris) sont uniquement stockées localement sur votre appareil, vous disposez d&apos;un contrôle absolu. Vous pouvez exporter ou supprimer l&apos;intégralité de vos données de manière immédiate et définitive en vidant simplement l&apos;historique de votre navigateur ou en cliquant sur le bouton de réinitialisation dans l&apos;onglet <strong>Paramètres</strong> de l&apos;application.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Modal Footer */}
+            <div className="p-4 border-t border-outline-variant/20 bg-surface-container-high/40 flex justify-end">
+              <button 
+                onClick={() => setIsLegalModalOpen(false)}
+                className="bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container px-6 py-2 rounded-full font-bold text-xs shadow-md transition-all active:scale-95"
+              >
+                Fermer
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
-
