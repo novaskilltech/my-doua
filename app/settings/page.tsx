@@ -51,7 +51,7 @@ export default function SettingsPage() {
       <main className="pt-24 pb-32 px-6 max-w-2xl mx-auto w-full space-y-12">
         <header>
           <h1 className="font-headline text-4xl text-primary">{t.settings}</h1>
-          <p className="text-on-surface-variant text-sm mt-2">Personnalisez votre expérience et gérez vos données.</p>
+          <p className="text-on-surface-variant text-sm mt-2">{t.settingsDesc}</p>
         </header>
 
         {/* Language Section */}
@@ -121,7 +121,7 @@ export default function SettingsPage() {
         <section className="space-y-6">
           <div className="flex items-center gap-3">
             <span className="material-symbols-outlined text-secondary">visibility</span>
-            <h3 className="font-manrope font-bold text-primary tracking-widest uppercase text-xs">Affichage</h3>
+            <h3 className="font-manrope font-bold text-primary tracking-widest uppercase text-xs">{t.display}</h3>
           </div>
           <div 
             onClick={toggleTransliteration}
@@ -129,7 +129,7 @@ export default function SettingsPage() {
           >
             <div className="space-y-1">
               <p className="font-bold text-on-surface">{t.transliteration}</p>
-              <p className="text-xs text-on-surface-variant">Afficher la phonétique sous le texte arabe.</p>
+              <p className="text-xs text-on-surface-variant">{t.transliterationDesc}</p>
             </div>
             <div className={cn(
               "w-14 h-8 rounded-full p-1 transition-colors duration-300",
@@ -147,13 +147,13 @@ export default function SettingsPage() {
         <section className="space-y-6">
           <div className="flex items-center gap-3">
             <span className="material-symbols-outlined text-secondary">workspace_premium</span>
-            <h3 className="font-manrope font-bold text-primary tracking-widest uppercase text-xs">Mon Abonnement</h3>
+            <h3 className="font-manrope font-bold text-primary tracking-widest uppercase text-xs">{t.mySubscription}</h3>
           </div>
           <div className="p-6 rounded-2xl bg-surface-container-low border border-outline-variant/10 space-y-4">
             <div className="flex justify-between items-center">
               <div>
-                <p className="font-bold text-on-surface">Statut de l&apos;application</p>
-                <p className="text-xs text-on-surface-variant">Activez l&apos;Assistant IA de recherche émotionnelle.</p>
+                <p className="font-bold text-on-surface">{t.appStatus}</p>
+                <p className="text-xs text-on-surface-variant">{t.activateIaDesc}</p>
               </div>
               <span className={cn(
                 "px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider",
@@ -161,7 +161,7 @@ export default function SettingsPage() {
                   ? "bg-secondary-container text-on-secondary-container" 
                   : "bg-surface-container-high text-on-surface-variant/70"
               )}>
-                {useAppStore((state) => state.isPremium) ? "Premium ✨" : "Version Gratuite"}
+                {useAppStore((state) => state.isPremium) ? t.premium : t.freeVersion}
               </span>
             </div>
             
@@ -169,7 +169,7 @@ export default function SettingsPage() {
               <div className="pt-2 flex flex-col gap-2">
                 <input 
                   type="text" 
-                  placeholder="Saisissez votre code d'activation..." 
+                  placeholder={t.activationCodePlaceholder} 
                   onChange={(e) => {
                     const code = e.target.value.trim().toUpperCase();
                     if (code === 'MDA-MONTHLY-X799' || code === 'MDA-ANNUAL-Y1299') {
@@ -188,7 +188,7 @@ export default function SettingsPage() {
                   onClick={() => useAppStore.getState().setPremium(false)}
                   className="text-xs font-bold text-error hover:underline"
                 >
-                  Désactiver le statut Premium (retour test)
+                  {t.deactivatePremium}
                 </button>
               </div>
             )}
@@ -199,7 +199,7 @@ export default function SettingsPage() {
         <section className="space-y-6">
           <div className="flex items-center gap-3">
             <span className="material-symbols-outlined text-secondary">database</span>
-            <h3 className="font-manrope font-bold text-primary tracking-widest uppercase text-xs">Gestion des données</h3>
+            <h3 className="font-manrope font-bold text-primary tracking-widest uppercase text-xs">{t.dataManagement}</h3>
           </div>
           <div className="grid grid-cols-1 gap-3">
             <button 
@@ -209,7 +209,7 @@ export default function SettingsPage() {
               <span className="material-symbols-outlined text-secondary">download</span>
               <div className="text-left">
                 <p className="font-bold text-on-surface">{t.export}</p>
-                <p className="text-xs text-on-surface-variant">Sauvegarder vos douas dans un fichier JSON.</p>
+                <p className="text-xs text-on-surface-variant">{t.exportDesc}</p>
               </div>
             </button>
             
@@ -219,7 +219,7 @@ export default function SettingsPage() {
               <span className="material-symbols-outlined text-secondary">upload</span>
               <div className="text-left">
                 <p className="font-bold text-on-surface">{t.import}</p>
-                <p className="text-xs text-on-surface-variant">Restaurer vos données depuis un fichier.</p>
+                <p className="text-xs text-on-surface-variant">{t.importDesc}</p>
               </div>
             </button>
 
@@ -230,7 +230,7 @@ export default function SettingsPage() {
               <span className="material-symbols-outlined text-error">delete_forever</span>
               <div className="text-left">
                 <p className="font-bold text-error">{t.clearAll}</p>
-                <p className="text-xs text-error/60">Supprimer définitivement toutes vos données.</p>
+                <p className="text-xs text-error/60">{t.clearAllDesc}</p>
               </div>
             </button>
           </div>
@@ -255,9 +255,9 @@ export default function SettingsPage() {
                   <span className="material-symbols-outlined text-4xl">warning</span>
                 </div>
                 <div className="text-center space-y-2">
-                  <h3 className="font-headline text-2xl text-primary">Êtes-vous sûr ?</h3>
+                  <h3 className="font-headline text-2xl text-primary">{t.areYouSure}</h3>
                   <p className="text-on-surface-variant text-sm">
-                    Cette action supprimera toutes vos douas enregistrées et vos préférences. Cette opération est irréversible.
+                    {t.confirmClearDesc}
                   </p>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -265,10 +265,10 @@ export default function SettingsPage() {
                     clearData();
                     setShowClearConfirm(false);
                   }}>
-                    Tout supprimer
+                    {t.deleteAll}
                   </Button>
                   <Button variant="tonal" className="w-full rounded-full" onClick={() => setShowClearConfirm(false)}>
-                    Annuler
+                    {t.cancel}
                   </Button>
                 </div>
               </motion.div>

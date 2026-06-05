@@ -48,10 +48,10 @@ export default function HomePage() {
           <motion.section variants={itemVariants} className="space-y-2">
           <div className="flex items-center gap-2 text-secondary mb-1">
             <Sparkles size={16} />
-            <span className="text-[10px] font-bold tracking-[0.2em] uppercase">Bienvenue</span>
+            <span className="text-[10px] font-bold tracking-[0.2em] uppercase">{t.welcome}</span>
           </div>
-          <h2 className="font-headline text-4xl md:text-5xl text-primary font-bold leading-tight">
-            Paix sur vous,
+          <h2 className="font-headline text-4xl md:text-5xl text-primary font-bold leading-tight animate-none">
+            {t.peaceBeUponYou}
           </h2>
           <p className="text-on-surface-variant text-lg leading-relaxed max-w-md">
             {t.slogan}
@@ -66,9 +66,9 @@ export default function HomePage() {
         {/* Quick Suggestions */}
         <motion.section variants={itemVariants}>
           <div className="flex justify-between items-end mb-6">
-            <h3 className="font-manrope font-bold text-primary tracking-tight uppercase text-xs">Suggestions pour vous</h3>
+            <h3 className="font-manrope font-bold text-primary tracking-tight uppercase text-xs">{t.suggestionsForYou}</h3>
             <Link href="/categories" className="flex items-center text-xs font-bold text-secondary group">
-              Voir tout
+              {t.viewAll}
               <ArrowRight size={14} className={`${isRTL ? "mr-1 rotate-180" : "ml-1"} transition-transform group-hover:translate-x-1`} />
             </Link>
           </div>
@@ -78,8 +78,8 @@ export default function HomePage() {
                 <Brain size={24} />
               </div>
               <div>
-                <h4 className="font-headline text-xl font-bold mb-1">Anxiété</h4>
-                <p className="text-[10px] opacity-70 group-hover:opacity-100 uppercase tracking-wider font-bold">Calme intérieur</p>
+                <h4 className="font-headline text-xl font-bold mb-1">{t.anxiety}</h4>
+                <p className="text-[10px] opacity-70 group-hover:opacity-100 uppercase tracking-wider font-bold">{t.innerCalm}</p>
               </div>
             </Link>
             <Link href="/categories/gratitude" className="group cursor-pointer bg-secondary-container rounded-3xl p-6 flex flex-col justify-between aspect-square hover:bg-primary hover:text-on-primary transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-primary/20">
@@ -87,8 +87,8 @@ export default function HomePage() {
                 <Heart size={24} />
               </div>
               <div>
-                <h4 className="font-headline text-xl font-bold mb-1 text-on-secondary-container group-hover:text-on-primary">Gratitude</h4>
-                <p className="text-[10px] text-on-secondary-container/70 group-hover:text-on-primary/70 uppercase tracking-wider font-bold">Bienfaits</p>
+                <h4 className="font-headline text-xl font-bold mb-1 text-on-secondary-container group-hover:text-on-primary">{t.gratitude}</h4>
+                <p className="text-[10px] text-on-secondary-container/70 group-hover:text-on-primary/70 uppercase tracking-wider font-bold">{t.blessings}</p>
               </div>
             </Link>
           </div>
@@ -101,11 +101,11 @@ export default function HomePage() {
         >
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
           <Sparkles className="text-secondary/40 mx-auto mb-6" size={32} />
-          <p className="font-headline italic text-2xl text-primary leading-relaxed mb-6">
-            &quot;Certes, c&apos;est par l&apos;évocation d&apos;Allah que les cœurs se tranquillisent.&quot;
+          <p className="font-headline italic text-2.5xl text-primary leading-relaxed mb-6">
+            {t.dailyVerse}
           </p>
           <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-bold tracking-widest uppercase">
-            Sourate Ar-Ra&apos;d • Verset 28
+            {t.dailyVerseSource}
           </div>
         </motion.section>
 
@@ -136,9 +136,11 @@ export default function HomePage() {
             {new Date().getHours() > 18 || new Date().getHours() < 6 ? <Moon size={32} /> : <Sun size={32} />}
           </div>
           <div className="space-y-1">
-            <h4 className="font-headline font-bold text-primary text-lg">Invocations du soir</h4>
+            <h4 className="font-headline font-bold text-primary text-lg">
+              {new Date().getHours() > 18 || new Date().getHours() < 6 ? t.eveningDuas : t.morningDuas}
+            </h4>
             <p className="text-on-surface-variant text-sm leading-relaxed">
-              Terminez votre journée par le rappel et la gratitude.
+              {new Date().getHours() > 18 || new Date().getHours() < 6 ? t.eveningDuasDesc : t.morningDuasDesc}
             </p>
           </div>
           <Link href="/categories/sommeil" className="ml-auto w-10 h-10 bg-white rounded-full flex items-center justify-center text-primary shadow-sm hover:shadow-md transition-shadow">
