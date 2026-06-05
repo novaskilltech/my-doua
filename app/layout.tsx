@@ -29,8 +29,14 @@ export const metadata: Metadata = {
   title: 'Mon Dou‘a Adéquat',
   description: 'L’application qui te conseille le bon dou‘a au bon moment.',
   icons: {
-    icon: '/favicon1.png',
-    apple: '/app_logo.png',
+    icon: [
+      { url: '/favicon1.png' },
+      { url: '/app_logo.png', sizes: '192x192', type: 'image/png' },
+    ],
+    shortcut: '/favicon1.png',
+    apple: [
+      { url: '/app_logo.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
   openGraph: {
     title: 'Mon Dou‘a Adéquat',
@@ -44,6 +50,12 @@ export const metadata: Metadata = {
         height: 630,
         alt: 'Mon Dou‘a - Invocations & Assistant Spirituel',
       },
+      {
+        url: '/app_logo.png',
+        width: 512,
+        height: 512,
+        alt: 'Mon Dou‘a Logo',
+      },
     ],
     locale: 'fr_FR',
     type: 'website',
@@ -52,7 +64,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Mon Dou‘a Adéquat',
     description: 'L’application qui te conseille le bon dou‘a au bon moment.',
-    images: ['/app_banner.png'],
+    images: ['/app_banner.png', '/app_logo.png'],
   },
 };
 
