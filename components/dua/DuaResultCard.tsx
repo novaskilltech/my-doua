@@ -18,6 +18,10 @@ export function DuaResultCard({ dua, isSaved, onSave }: DuaResultCardProps) {
   const { t } = useTranslation();
   const { preferences, toggleFavorite, savedDuas } = useAppStore();
   const [copied, setCopied] = useState(false);
+  const [count, setCount] = useState(0);
+
+  const match = dua.repetition?.match(/(\d+)\s*fois/i);
+  const targetCount = match ? parseInt(match[1], 10) : null;
 
   const isFavorite = savedDuas.find(d => d.id === dua.id)?.isFavorite || false;
 
@@ -88,12 +92,67 @@ export function DuaResultCard({ dua, isSaved, onSave }: DuaResultCardProps) {
           </p>
         </div>
 
-        {/* Source Tag */}
-        <div className="flex items-center gap-2 mb-12 py-2 px-4 rounded-lg bg-surface-container-low w-fit">
-          <span className="material-symbols-outlined text-sm text-secondary">menu_book</span>
-          <span className="text-xs font-bold text-on-surface-variant">
-            {t.source}: {dua.source} {dua.hadithStatus && `(${dua.hadithStatus})`}
-          </span>
+        {/* Source & Repetition */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-12">
+          <div className="flex items-center gap-2 py-2 px-4 rounded-lg bg-surface-container-low w-fit h-fit">
+            <span className="material-symbols-outlined text-sm text-secondary">menu_book</span>
+            <span className="text-xs font-bold text-on-surface-variant">
+              {t.source}: {dua.source} {dua.hadithStatus && `(${dua.hadithStatus})`}
+            </span>
+          </div>
+
+          {dua.repetition && (
+            <div className="flex items-center justify-between gap-4 p-4 rounded-2xl bg-primary/5 border border-primary/10 sm:w-auto w-full">
+              <div className="space-y-0.5">
+                <span className="text-[9px] uppercase tracking-widest font-bold text-primary block">
+                  {t.repetition}
+                </span>
+                <p className="text-xs font-semibold text-on-surface pr-2">
+                  {dua.repetition}
+                </p>
+              </div>
+              <div className="flex items-center gap-2">
+                {count > 0 && (
+                  <button 
+                    onClick={() => setCount(0)}
+                    className="w-8 h-8 rounded-full hover:bg-surface-container text-on-surface-variant transition-colors flex items-center justify-center active:scale-90"
+                    title="Réinitialiser"
+                  >
+                    <span className="material-symbols-outlined text-lg">replay</span>
+                  </button>
+                )}
+                <button
+                  onClick={() => {
+                    if (targetCount) {
+                      if (count < targetCount) setCount(prev => prev + 1);
+                    } else {
+                      setCount(prev => prev + 1);
+                    }
+                  }}
+                  disabled={targetCount ? count >= targetCount : false}
+                  className={cn(
+                    "relative w-11 h-11 rounded-full flex flex-col items-center justify-center font-headline font-bold text-sm transition-all select-none shadow-sm",
+                    targetCount && count >= targetCount 
+                      ? "bg-green-600 text-white cursor-default" 
+                      : "bg-primary text-on-primary hover:bg-primary/90 active:scale-90"
+                  )}
+                >
+                  {targetCount && count >= targetCount ? (
+                    <span className="material-symbols-outlined text-base">check</span>
+                  ) : (
+                    <>
+                      <span className={cn(targetCount ? "translate-y-[-2px]" : "")}>{count}</span>
+                      {targetCount && (
+                        <span className="absolute bottom-1 text-[7px] opacity-75 font-normal tracking-tighter">
+                          /{targetCount}
+                        </span>
+                      )}
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Action Buttons */}
