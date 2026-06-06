@@ -30,7 +30,7 @@ export const MOCK_DUAS: Dua[] = [
     source: "Al-Bukhari & Muslim",
     hadithStatus: "Sahih",
     recommendedMoment: "Avant de dormir",
-    categoryIds: ["sommeil", "protection"]
+    categoryIds: ["sommeil"]
   },
   {
     id: "dua-4",
@@ -41,7 +41,7 @@ export const MOCK_DUAS: Dua[] = [
     hadithStatus: "Sahih",
     recommendedMoment: "Après chaque prière obligatoire",
     repetition: "1 fois",
-    categoryIds: ["gratitude", "demande-generale"]
+    categoryIds: ["gratitude", "invocations-essentielles"]
   },
   {
     id: "dua-5",
@@ -56,14 +56,14 @@ export const MOCK_DUAS: Dua[] = [
   },
   {
     id: "dua-6",
-    arabic: "لَا إِلَهَ إِلَّا اللَّهُ الْعَظِيمُ الْحَلِيمُ، لَا إِلَهَ إِلَّا اللَّهُ رَبُّ الْعَرْشِ الْعَظِيمِ، لَا إِلَهَ إِلَّا اللَّهُ رَبُّ السَّمَوَاتِ وَرَبُّ الْأَرْضِ وَرَبُّ الْعَرْشِ الْكَرِيمِ",
+    arabic: "لَا إِلَهَ إِلَّا اللَّهُ الْعَظِيمُ الْحَلِيمُ، لَا إِلَهَ إِلَّا اللَّهُ رَبُّ الْعَرْشِ الْعَظِيمِ، لَا إِلَهَ إِلَّا اللَّهُ رَبُّ السَّمَوَاتِ وَرَبُّ الْأَرْضِ وَرَبُّ الْعَرْشِ الْكَرِيمِ",
     transliteration: "Lā ilāha illā-l-Lāhu-l-'Aẓīmu-l-Ḥalīm, lā ilāha illā-l-Lāhu Rabbu-l-'Arshi-l-'Aẓīm, lā ilāha illā-l-Lāhu Rabbu-s-samāwāti wa Rabbu-l-arḍi wa Rabbu-l-'Arshi-l-Karīm",
     translation: "Il n'y a de divinité d'adorée qu'Allah, l'Immense, le Clément. Il n'y a de divinité d'adorée qu'Allah, le Seigneur du Trône Immense. Il n'y a de divinité d'adorée qu'Allah, le Seigneur des cieux, le Seigneur de la terre et le Seigneur du Noble Trône.",
     source: "Al-Bukhari & Muslim",
     hadithStatus: "Sahih",
     recommendedMoment: "En cas de stress intense ou de détresse",
     repetition: "1 fois",
-    categoryIds: ["stress", "apaisement", "peur", "crainte", "epreuve"]
+    categoryIds: ["stress", "apaisement", "peur", "detresse", "epreuve"]
   },
   {
     id: "dua-7",
@@ -74,18 +74,18 @@ export const MOCK_DUAS: Dua[] = [
     hadithStatus: "Sahih",
     recommendedMoment: "En visitant un malade ou pour soi-même",
     repetition: "1 fois",
-    categoryIds: ["maladie", "epreuve", "protection"]
+    categoryIds: ["maladie", "epreuve"]
   },
   {
     id: "dua-8",
-    arabic: "أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ، وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ",
+    arabic: "أَعُوذُ بِكَلِمَاتِ اللَّهِ Tَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ، وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ",
     transliteration: "A'ūdhu bi-kalimāti-l-Lāhi-t-tāmmati min kulli shayṭānin wa hāmmah, wa min kulli 'aynin lāmmah",
     translation: "Je cherche protection par les paroles parfaites d'Allah contre tout démon, tout animal venimeux et contre tout mauvais œil.",
     source: "Al-Bukhari",
     hadithStatus: "Sahih",
     recommendedMoment: "Matin et soir, ou pour protéger les enfants",
     repetition: "3 fois",
-    categoryIds: ["protection", "mauvais-oeil", "sorcellerie", "jalousie", "peur", "envie", "matin", "soir"]
+    categoryIds: ["mauvais-oeil", "sorcellerie", "protection-hasad", "peur", "matin", "soir"]
   },
   {
     id: "dua-9",
@@ -96,7 +96,7 @@ export const MOCK_DUAS: Dua[] = [
     hadithStatus: "Sahih",
     recommendedMoment: "Face à une injustice ou une difficulté",
     repetition: "Autant de fois que possible",
-    categoryIds: ["injustice", "peur", "epreuve", "demande-generale"]
+    categoryIds: ["injustice", "peur", "epreuve", "invocations-essentielles"]
   },
   {
     id: "dua-10",
@@ -107,7 +107,7 @@ export const MOCK_DUAS: Dua[] = [
     hadithStatus: "Sahih",
     recommendedMoment: "Après les prières ou en période de besoin financier",
     repetition: "1 fois",
-    categoryIds: ["difficulte-financiere", "pauvrete", "richesse"]
+    categoryIds: ["difficulte-financiere", "pauvrete", "subsistance-licite"]
   },
   {
     id: "dua-11",
@@ -118,7 +118,7 @@ export const MOCK_DUAS: Dua[] = [
     hadithStatus: "Sahih",
     recommendedMoment: "Pendant les prosternations ou aux moments d'exaucement",
     repetition: "1 fois",
-    categoryIds: ["infertilite", "epreuve", "demande-generale"]
+    categoryIds: ["infertilite", "epreuve", "invocations-essentielles"]
   },
   {
     id: "dua-12",
@@ -129,7 +129,7 @@ export const MOCK_DUAS: Dua[] = [
     hadithStatus: "Sahih",
     recommendedMoment: "Matin et soir",
     repetition: "1 fois",
-    categoryIds: ["mal-etre", "apaisement", "tristesse", "anxiete", "bonheur", "matin", "soir"]
+    categoryIds: ["mal-etre", "apaisement", "tristesse", "anxiete", "detresse", "matin", "soir"]
   },
   {
     id: "dua-13",
@@ -140,7 +140,7 @@ export const MOCK_DUAS: Dua[] = [
     hadithStatus: "Sahih",
     recommendedMoment: "Matin et soir, ou en faisant halte dans un lieu",
     repetition: "3 fois",
-    categoryIds: ["protection", "mauvais-oeil", "peur", "epreuve", "matin", "soir", "voyage"]
+    categoryIds: ["protection-quotidienne", "protection-lieu", "peur", "epreuve", "matin", "soir", "voyage"]
   },
   {
     id: "dua-14",
@@ -151,7 +151,7 @@ export const MOCK_DUAS: Dua[] = [
     hadithStatus: "Sahih",
     recommendedMoment: "Matin et soir",
     repetition: "1 fois",
-    categoryIds: ["repentir", "demande-generale", "apaisement", "matin", "soir"]
+    categoryIds: ["repentir", "invocations-essentielles", "apaisement", "matin", "soir"]
   },
   {
     id: "dua-15",
@@ -162,7 +162,7 @@ export const MOCK_DUAS: Dua[] = [
     hadithStatus: "Sahih",
     recommendedMoment: "En posant la main sur la zone douloureuse",
     repetition: "1 fois",
-    categoryIds: ["maladie", "epreuve", "protection"]
+    categoryIds: ["maladie", "epreuve", "ruqya"]
   },
   {
     id: "dua-16",
@@ -173,18 +173,18 @@ export const MOCK_DUAS: Dua[] = [
     hadithStatus: "Sahih",
     recommendedMoment: "Le matin",
     repetition: "1 fois",
-    categoryIds: ["matin", "protection", "apaisement"]
+    categoryIds: ["matin", "apaisement"]
   },
   {
     id: "dua-17",
-    arabic: "أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
+    arabic: "أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا Stُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
     transliteration: "Amsaynā wa amsal-mulku lillāh, wal-ḥamdu lillāh, lā ilāha illallāhu waḥdahu lā sharīka lah, lahul-mulku wa lahul-ḥamdu wa huwa 'alā kulli shay'in qadīr",
     translation: "Nous sommes au soir et le règne appartient à Allah, louange à Allah. Il n'y a pas de divinité en dehors d'Allah unique, sans associé. À Lui la royauté et la louange, et Il est Tout-Puissant.",
     source: "Muslim",
     hadithStatus: "Sahih",
     recommendedMoment: "Le soir",
     repetition: "1 fois",
-    categoryIds: ["soir", "protection", "apaisement"]
+    categoryIds: ["soir", "apaisement"]
   },
   {
     id: "dua-18",
@@ -195,7 +195,7 @@ export const MOCK_DUAS: Dua[] = [
     hadithStatus: "Sahih",
     recommendedMoment: "Avant de s'endormir",
     repetition: "1 fois",
-    categoryIds: ["sommeil", "protection"]
+    categoryIds: ["sommeil"]
   },
   {
     id: "dua-19",
@@ -206,7 +206,7 @@ export const MOCK_DUAS: Dua[] = [
     hadithStatus: "Sahih",
     recommendedMoment: "Avant de dormir",
     repetition: "3 fois",
-    categoryIds: ["sommeil", "protection"]
+    categoryIds: ["sommeil"]
   },
   {
     id: "dua-20",
@@ -217,7 +217,7 @@ export const MOCK_DUAS: Dua[] = [
     hadithStatus: "Sahih",
     recommendedMoment: "Matin et soir",
     repetition: "3 fois",
-    categoryIds: ["matin", "soir", "protection"]
+    categoryIds: ["matin", "soir"]
   },
   {
     id: "dua-21",
@@ -228,11 +228,11 @@ export const MOCK_DUAS: Dua[] = [
     hadithStatus: "Sahih",
     recommendedMoment: "Au moment de monter dans un transport",
     repetition: "1 fois",
-    categoryIds: ["voyage", "protection"]
+    categoryIds: ["voyage"]
   },
   {
     id: "dua-22",
-    arabic: "اللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى، وَمِنَ الْعَمَلِ مَا تَرْضَى",
+    arabic: "اللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى، وَمِنَ الْعَمَلِ مَا Tَرْضَى",
     transliteration: "Allāhumma innā nas'aluka fī safarinā hādhā al-birra wat-taqwā, wa minal-'amali mā tarḍā",
     translation: "Ô Allah, nous Te demandons dans ce voyage la piété, la dévotion et les œuvres qui Te plaisent.",
     source: "Muslim",
@@ -250,7 +250,7 @@ export const MOCK_DUAS: Dua[] = [
     hadithStatus: "Sahih",
     recommendedMoment: "Pendant le voyage",
     repetition: "1 fois",
-    categoryIds: ["voyage", "protection"]
+    categoryIds: ["voyage"]
   },
   {
     id: "dua-24",
@@ -283,6 +283,127 @@ export const MOCK_DUAS: Dua[] = [
     hadithStatus: "Sahih",
     recommendedMoment: "Pour la protection des enfants/famille",
     repetition: "1 fois",
-    categoryIds: ["famille", "protection", "mauvais-oeil"]
+    categoryIds: ["famille", "protection-enfants", "mauvais-oeil"]
+  },
+  {
+    id: "dua-27",
+    arabic: "رَبَّنَا افْتَحْ بَيْنَنَا وَبَيْنَ قَوْمِنَا بِالْحَقِّ وَأَنْتَ خَيْرُ الْفَاتِحِينَ",
+    transliteration: "Rabbanā-ftaḥ baynanā wa bayna qawminā bil-ḥaqqi wa Anta khayrul-fātiḥīn",
+    translation: "Notre Seigneur, tranche entre nous et notre peuple avec vérité, car Tu es le meilleur des juges.",
+    source: "Coran (7:89)",
+    hadithStatus: "Sahih",
+    recommendedMoment: "Face à une injustice ou une épreuve",
+    repetition: "1 fois",
+    categoryIds: ["injustice", "epreuve"]
+  },
+  {
+    id: "dua-28",
+    arabic: "رَبِّ انصُرْنِي عَلَى الْقَوْمِ الْمُفْسِدِينَ",
+    transliteration: "Rabbi-nṣurnī ‘alal-qawmil-mufsidīn",
+    translation: "Seigneur ! Donne-moi la victoire sur ce peuple de semeurs de désordre.",
+    source: "Coran (29:30)",
+    hadithStatus: "Sahih",
+    recommendedMoment: "Face à une injustice",
+    repetition: "1 fois",
+    categoryIds: ["injustice", "epreuve"]
+  },
+  {
+    id: "dua-29",
+    arabic: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۚ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۚ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۚ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ",
+    transliteration: "Allāhu lā ilāha illā Huwal-Ḥayyul-Qayyūm, lā ta'khudhuhu sinatun wa lā nawm, lahu mā fis-samāwāti wa mā fil-arḍ, man dhalladhī yashfa'u 'indahu illā bi-idhnihi, ya'lamu mā bayna aydīhim wa mā khalfahum, wa lā yuḥīṭūna bi-shay'in min 'ilmihi illā bimā shā', wasi'a kursiyyuhus-samāwāti wal-arḍ, wa lā ya'ūduhu ḥifẓuhumā, wa Huwal-'Aliyyul-'Aẓīm",
+    translation: "Allah ! Point de divinité à part Lui, le Vivant, Celui qui subsiste par Lui-même. Ni somnolence ni sommeil ne Le saisissent. À Lui appartient tout ce qui est dans les cieux et sur la terre. Qui peut intercéder auprès de Lui sans Sa permission ? Il connaît leur futur et leur passé. Et, de Sa science, ils n'embrassent que ce qu'Il veut. Son Trône déborde les cieux et la terre, dont la garde ne Lui coûte aucune peine. Et Il est le Très Haut, le Très Grand.",
+    source: "Coran (2:255)",
+    hadithStatus: "Sahih",
+    recommendedMoment: "Après chaque prière obligatoire, matin, soir, et avant de dormir pour une protection continue",
+    repetition: "1 fois",
+    categoryIds: ["protection-quotidienne", "sorcellerie", "matin", "soir", "sommeil"]
+  },
+  {
+    id: "dua-30",
+    arabic: "آمَنَ الرَّسُولُ بِمَا أُنزِلَ إِلَيْهِ مِن رَّبِّهِ وَالْمُؤْمِنُونَ ۚ كُلٌّ آمَنَ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لَا نُفَرِّقُ بَيْنَ أَحَدٍ مِّن رُّسُلِهِ ۚ وَقَالُوا سَمِعْنَا وَأَطَعْنَا ۖ غُفْرَانَكَ رَبَّنَا وَإِلَيْكَ الْمَصِيرُ * لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا ۚ لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ ۗ رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا ۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِن قَبْلِنَا ۚ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ ۖ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا ۚ أَنتَ مَوْلَانَا فَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ",
+    transliteration: "Āmana-r-Rasūlu bimā unzila ilayhi mir-Rabbihī wal-mu'minūn... Lā yukallifullāhu nafsan illā wus'ahā...",
+    translation: "Le Messager a creu en ce qu'on a fait descendre vers lui de la part de son Seigneur, et aussi les croyants... Allah n'impose à aucune âme une charge supérieure à sa capacité...",
+    source: "Coran (2:285-286)",
+    hadithStatus: "Sahih",
+    recommendedMoment: "Le soir (pendant la nuit) pour une protection complète",
+    repetition: "1 fois",
+    categoryIds: ["protection-quotidienne", "sorcellerie", "soir"]
+  },
+  {
+    id: "dua-31",
+    arabic: "قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ * مِن شَرِّ مَا خَلَقَ * وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ * وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ * وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ",
+    transliteration: "Qul a'ūdhu bi-Rabbil-falaq. Min sharri mā khalaq. Wa min sharri ghāsiqin idhā waqab. Wa min sharrin-naffāthāti fil-'uqad. Wa min sharri ḥāsidin idhā ḥasad",
+    translation: "Dis : Je cherche protection auprès du Seigneur de l'aube naissante, contre le mal des êtres qu'Il a créés, contre le mal de l'obscurité quand elle s'approfondit, contre le mal de celles qui soufflent sur les nœuds (les sorcières), et contre le mal de l'envieux quand il envie.",
+    source: "Coran (Sourate 113)",
+    hadithStatus: "Sahih",
+    recommendedMoment: "Matin, soir, avant de dormir, et pour les exorcismes (Roqya)",
+    repetition: "3 fois",
+    categoryIds: ["protection-quotidienne", "sorcellerie", "mauvais-oeil", "protection-hasad", "ruqya", "matin", "soir", "sommeil"]
+  },
+  {
+    id: "dua-32",
+    arabic: "قُلْ أَعُوذُ بِرَبِّ النَّاسِ * مَلِكِ النَّاسِ * إِلَٰهِ النَّاسِ * مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ * الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ * مِنَ الْجِنَّةِ وَالنَّاسِ",
+    transliteration: "Qul a'ūdhu bi-Rabbin-nās. Malikin-nās. Ilāhin-nās. Min sharril-waswāsil-khannās. Alladhī yuwaswisu fī ṣudūrin-nās. Minal-jinnati wan-nās",
+    translation: "Dis : Je cherche protection auprès du Seigneur des hommes, le Souverain des hommes, le Dieu des hommes, contre le mal du mauvais conseiller furtif, qui insuffle le mal dans les poitrines des hommes, qu'il soit djinn ou humain.",
+    source: "Coran (Sourate 114)",
+    hadithStatus: "Sahih",
+    recommendedMoment: "Matin, soir, avant de dormir, et pour les exorcismes (Roqya)",
+    repetition: "3 fois",
+    categoryIds: ["protection-quotidienne", "sorcellerie", "ruqya", "anxiete", "matin", "soir", "sommeil"]
+  },
+  {
+    id: "dua-33",
+    arabic: "بِسْمِ اللَّهِ أَرْقِيكَ، مِنْ كُلِّ شَيْءٍ يُؤْذِيكَ، مِنْ شَرِّ كُلِّ نَفْسٍ أَوْ عَيْنِ حَاسِدٍ، اللَّهُ يَشْفِيكَ بِسْمِ اللَّهِ أَرْقِيكَ",
+    transliteration: "Bismillāhi arqīka, min kulli shay'in yu'dhīka, min sharri kulli nafsin aw 'ayni ḥāsid, Allāhu yashfīka, bismillāhi arqīka",
+    translation: "Au nom d'Allah je t'exorcise, contre tout ce qui te fait du mal, contre le mal de toute âme ou du regard d'un envieux. Qu'Allah te guérisse. Au nom d'Allah je t'exorcise.",
+    source: "Muslim",
+    hadithStatus: "Sahih",
+    recommendedMoment: "Roqya (exorcisme) pour se soigner ou soigner un malade du mauvais œil ou de la jalousie",
+    repetition: "1 fois",
+    categoryIds: ["mauvais-oeil", "protection-hasad", "ruqya", "maladie", "epreuve"]
+  },
+  {
+    id: "dua-34",
+    arabic: "اللَّهُمَّ بَارِكْ عَلَيْهِ وَلَا تَضُرَّهُ",
+    transliteration: "Allāhumma bārik 'alayhi wa lā taḍurrah",
+    translation: "Ô Allah, bénis-le et ne lui nuits pas (préserve-le de tout mal).",
+    source: "Ahmad & Ibn Majah",
+    hadithStatus: "Sahih",
+    recommendedMoment: "À dire lorsqu'on voit quelque chose qui nous plaît chez son frère afin de ne pas lui porter l'œil (le bénir)",
+    repetition: "1 fois",
+    categoryIds: ["mauvais-oeil", "protection-hasad", "famille"]
+  },
+  {
+    id: "dua-35",
+    arabic: "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْهُدَى وَالتُّقَى وَالْعَفَافَ وَالْغِنَى",
+    transliteration: "Allāhumma innī as'alukal-hudā wat-tuqā wal-'afāfa wal-ghinā",
+    translation: "Ô Allah, je Te demande la guidée, la piété, la chasteté et la suffisance.",
+    source: "Muslim",
+    hadithStatus: "Sahih",
+    recommendedMoment: "Dans ses prières ou invocation quotidienne",
+    repetition: "1 fois",
+    categoryIds: ["crainte-allah", "invocations-essentielles"]
+  },
+  {
+    id: "dua-36",
+    arabic: "اللَّهُمَّ اقْسِمْ لَنَا مِنْ خَشْيَتِكَ مَا تَحُولُ بِهِ بَيْنَنَا وَبَيْنَ مَعَاصِيكَ",
+    transliteration: "Allāhumma-qsim lanā min khashyatika mā taḥūlu bihī baynanā wa bayna ma'āṣīk",
+    translation: "Ô Allah, accorde-nous une part de Ta crainte qui nous empêche de Te désobéir.",
+    source: "At-Tirmidhi",
+    hadithStatus: "Sahih",
+    recommendedMoment: "Dans ses prières ou invocation quotidienne",
+    repetition: "1 fois",
+    categoryIds: ["crainte-allah"]
+  },
+  {
+    id: "dua-37",
+    arabic: "رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِن لَّدُنكَ رَحْمَةً ۚ إِنَّكَ أَنتَ الْوَهَّابُ",
+    transliteration: "Rabbanā lā tuzigh qulūbanā ba'da idh hadaytanā wa hab lanā mil-ladunka raḥmatan innaka Antal-Wahhāb",
+    translation: "Seigneur, ne laisse pas nos cœurs dévier après nous avoir guidés, et accorde-nous une miséricorde venant de Toi. C’est Toi, certes, le Grand Donateur.",
+    source: "Coran (3:8)",
+    hadithStatus: "Sahih",
+    recommendedMoment: "Dans ses prières quotidiennes",
+    repetition: "1 fois",
+    categoryIds: ["crainte-allah", "invocations-essentielles"]
   }
 ];

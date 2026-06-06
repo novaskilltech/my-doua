@@ -52,7 +52,7 @@ export default function DuaDetailPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-surface">
-      <TopBar title={t.results} showBack onBack={() => router.back()} />
+      <TopBar title={t.myDuas} showBack onBack={() => router.back()} />
       
       <main className="flex-1 pt-24 pb-32 px-6 max-w-2xl mx-auto w-full">
         <motion.div

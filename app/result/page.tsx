@@ -24,11 +24,11 @@ function ResultContent() {
 
   useEffect(() => {
     setTopBarProps({ 
-      title: t.results,
+      title: t.searchResultTitle,
       showBack: true,
       onBack: () => router.back()
     });
-  }, [setTopBarProps, t.results, router]);
+  }, [setTopBarProps, t.searchResultTitle, router]);
 
   useEffect(() => {
     if (!query) {
@@ -127,7 +127,7 @@ function ResultContent() {
               >
                 <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold tracking-[0.2em] uppercase">
                   <Sparkles size={12} className="mr-2" />
-                  {t.results}
+                  {t.searchResultTitle}
                 </span>
               </motion.div>
               
