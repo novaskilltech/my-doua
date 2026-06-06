@@ -8,9 +8,9 @@ export const MOCK_DUAS: Dua[] = [
     translation: "Ô Allah, je cherche protection auprès de Toi contre l'anxiété et la tristesse, l'incapacité et la paresse, l'avarice et la lâcheté, le fardeau de la dette et la domination des hommes.",
     source: "Al-Bukhari",
     hadithStatus: "Sahih",
-    recommendedMoment: "Matin et soir",
-    repetition: "3 fois",
-    categoryIds: ["anxiete", "tristesse", "difficulte-financiere", "matin", "soir", "stress", "mal-etre", "subsistance-licite"]
+    recommendedMoment: "En cas d'anxiété ou de dettes",
+    repetition: "1 fois",
+    categoryIds: ["anxiete", "tristesse", "difficulte-financiere", "stress", "mal-etre", "subsistance-licite"]
   },
   {
     id: "dua-2",
@@ -83,9 +83,9 @@ export const MOCK_DUAS: Dua[] = [
     translation: "Je cherche protection par les paroles parfaites d'Allah contre tout démon, tout animal venimeux et contre tout mauvais œil.",
     source: "Al-Bukhari",
     hadithStatus: "Sahih",
-    recommendedMoment: "Matin et soir, ou pour protéger les enfants",
-    repetition: "3 fois",
-    categoryIds: ["mauvais-oeil", "sorcellerie", "protection-hasad", "peur", "matin", "soir", "protection-enfants"]
+    recommendedMoment: "Pour protéger les enfants ou les personnes",
+    repetition: "1 fois",
+    categoryIds: ["mauvais-oeil", "sorcellerie", "protection-hasad", "peur", "protection-enfants"]
   },
   {
     id: "dua-9",
@@ -138,9 +138,9 @@ export const MOCK_DUAS: Dua[] = [
     translation: "Je cherche protection par les paroles parfaites d'Allah contre le mal de ce qu'Il a créé.",
     source: "Muslim",
     hadithStatus: "Sahih",
-    recommendedMoment: "Matin et soir, ou en faisant halte dans un lieu",
+    recommendedMoment: "Le soir, ou en faisant halte dans un lieu",
     repetition: "3 fois",
-    categoryIds: ["protection-quotidienne", "protection-lieu", "peur", "epreuve", "matin", "soir", "voyage"]
+    categoryIds: ["protection-quotidienne", "protection-lieu", "peur", "epreuve", "soir", "voyage"]
   },
   {
     id: "dua-14",
@@ -471,5 +471,28 @@ export const MOCK_DUAS: Dua[] = [
     recommendedMoment: "Dans ses prières quotidiennes",
     repetition: "1 fois",
     categoryIds: ["infertilite", "famille"]
+  },
+  {
+    id: "dua-44",
+    arabic: "رَضِيتُ بِاللَّهِ رَبَّاً، وَبِالْإِسْلَامِ دِيناً، وَبِمُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ نَبِيّاً",
+    transliteration: "Raḍītu billāhi Rabban, wa bil-Islāmi dīnan, wa bi-Muḥammadin ṣallā-l-Lāhu 'alayhi wa sallama nabiyyā",
+    translation: "Je suis agréé d'Allah comme Seigneur, de l'Islam comme religion et de Mohammed (paix et bénédictions d'Allah sur lui) comme Prophète.",
+    source: "Abu Dawud, At-Tirmidhi",
+    hadithStatus: "Sahih",
+    recommendedMoment: "Matin et soir",
+    repetition: "3 fois",
+    categoryIds: ["matin", "soir", "invocations-essentielles", "apaisement"]
+  },
+  {
+    id: "dua-45",
+    arabic: "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي دِينِي وَدُنْيَايَ وَأَهْلِي وَمَالِي، اللَّهُمَّ اسْتُرْ عَوْرَاتِي وَآمِنْ رَوْعَاتِي، اللَّهُمَّ احْفَظْنِي مِنْ بَيْنِ يَدَيَّ وَمِنْ خَلْفِي وَعَنْ يَمِينِي وَعَنْ شِمَالِي وَمِنْ فَوْقِي، وَأَعُوذُ بِعَظَمَتِكَ أَنْ أُغْتَالَ مِنْ تَحْتِي",
+    transliteration: "Allāhumma innī as'alukal-'afwa wal-'āfiyata fid-dunyā wal-ākhirah. Allāhumma innī as'alukal-'afwa wal-'āfiyata fī dīnī wa dunyāya wa ahlī wa mālī. Allāhumma-stur 'awrātī wa-āmin raw'ātī. Allāhumma-ḥfaẓnī min bayni yadayya wa min khalfī, wa 'an yamīnī wa 'an shimālī, wa min fawqī, wa a'ūdhu bi-'aẓamatika an ughtāla min taḥtī",
+    translation: "Ô Allah, je Te demande le pardon et la préservation dans cette vie et dans l'au-delà. Ô Allah, je Te demande le pardon et la préservation dans ma religion, ma vie terrestre, ma famille et mes biens. Ô Allah, cache mes défauts et apaise mes craintes. Ô Allah, préserve-moi par devant, par derrière, sur ma droite, sur ma gauche et au-dessus de moi. Et je cherche refuge auprès de Ta grandeur contre le fait d'être englouti par le sol.",
+    source: "Abu Dawud, Ibn Majah",
+    hadithStatus: "Sahih",
+    recommendedMoment: "Matin et soir",
+    repetition: "1 fois",
+    categoryIds: ["matin", "soir", "protection-quotidienne", "apaisement"]
   }
 ];
+
