@@ -7,57 +7,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Sparkles, MapPin, Navigation, Clock, Globe, Compass } from 'lucide-react';
 import { Coordinates, CalculationMethod, PrayerTimes, Prayer } from 'adhan';
 
-interface CityPreset {
-  name: string;
-  latitude: number;
-  longitude: number;
-  label: Record<string, string>;
-}
 
-const CITY_PRESETS: CityPreset[] = [
-  {
-    name: 'Makkah',
-    latitude: 21.4225,
-    longitude: 39.8262,
-    label: { fr: 'La Mecque', en: 'Makkah', ar: 'مكة المكرمة' }
-  },
-  {
-    name: 'Madinah',
-    latitude: 24.4672,
-    longitude: 39.6112,
-    label: { fr: 'Médine', en: 'Madinah', ar: 'المدينة المنورة' }
-  },
-  {
-    name: 'Paris',
-    latitude: 48.8566,
-    longitude: 2.3522,
-    label: { fr: 'Paris', en: 'Paris', ar: 'باريس' }
-  },
-  {
-    name: 'Lyon',
-    latitude: 45.7640,
-    longitude: 4.8357,
-    label: { fr: 'Lyon', en: 'Lyon', ar: 'ليون' }
-  },
-  {
-    name: 'Marseille',
-    latitude: 43.2965,
-    longitude: 5.3698,
-    label: { fr: 'Marseille', en: 'Marseille', ar: 'مارسيليا' }
-  },
-  {
-    name: 'Montreal',
-    latitude: 45.5017,
-    longitude: -73.5673,
-    label: { fr: 'Montréal', en: 'Montreal', ar: 'مونتريال' }
-  },
-  {
-    name: 'London',
-    latitude: 51.5074,
-    longitude: -0.1278,
-    label: { fr: 'Londres', en: 'London', ar: 'لندن' }
-  }
-];
 
 export default function PrayersPage() {
   const { t, language, isRTL } = useTranslation();
@@ -70,7 +20,7 @@ export default function PrayersPage() {
   // Default coordinates (Makkah) if no location stored
   const activeLat = userLocation?.latitude ?? 21.4225;
   const activeLon = userLocation?.longitude ?? 39.8262;
-  const activeName = userLocation?.name ?? 'Makkah';
+  const activeName = userLocation?.name ?? 'Makkah (Défaut)';
   
   useEffect(() => {
     setTopBarProps({ title: t.prayerTimes });
@@ -168,31 +118,14 @@ export default function PrayersPage() {
       },
       (error) => {
         console.error(error);
-        setGpsError("Impossible d'accéder à votre position GPS. Veuillez vérifier vos permissions ou choisir une ville.");
+        setGpsError("Impossible d'accéder à votre position GPS. Veuillez vérifier vos permissions d'accès à la position.");
         setGpsLoading(false);
       },
       { enableHighAccuracy: true, timeout: 10000 }
     );
   };
 
-  const handleCitySelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedName = e.target.value;
-    if (!selectedName) return;
-    const city = CITY_PRESETS.find(c => c.name === selectedName);
-    if (city) {
-      setLocation({
-        latitude: city.latitude,
-        longitude: city.longitude,
-        name: city.name,
-        isGPS: false
-      });
-      setGpsError(null);
-    }
-  };
 
-  const getCityLabel = (city: CityPreset) => {
-    return city.label[language] || city.label['fr'] || city.name;
-  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -226,7 +159,7 @@ export default function PrayersPage() {
             <div className="flex items-center justify-center gap-1.5 text-xs text-on-surface-variant">
               <MapPin size={14} className="text-secondary" />
               <span>
-                {activeName === 'GPS Position' ? t.locationDetected : (CITY_PRESETS.find(c => c.name === activeName) ? getCityLabel(CITY_PRESETS.find(c => c.name === activeName)!) : activeName)}
+                {activeName === 'GPS Position' ? t.locationDetected : activeName}
               </span>
               <span className="opacity-40">•</span>
               <span className="font-mono text-[10px] bg-surface-container-high px-2 py-0.5 rounded">
@@ -318,12 +251,12 @@ export default function PrayersPage() {
               <h4 className="font-headline font-bold text-primary text-base">Configuration de la localisation</h4>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col gap-4">
               {/* GPS Button */}
               <button
                 onClick={handleGPSDetection}
                 disabled={gpsLoading}
-                className="flex-1 bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container disabled:bg-surface-container disabled:text-on-surface-variant/40 py-4 px-6 rounded-2xl font-bold text-xs shadow-md transition-all active:scale-[0.98] flex items-center justify-center gap-2"
+                className="w-full bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container disabled:bg-surface-container disabled:text-on-surface-variant/40 py-4 px-6 rounded-2xl font-bold text-xs shadow-md transition-all active:scale-[0.98] flex items-center justify-center gap-2"
               >
                 {gpsLoading ? (
                   <div className="w-4 h-4 border-2 border-on-primary/20 border-t-on-primary rounded-full animate-spin" />
@@ -332,22 +265,6 @@ export default function PrayersPage() {
                 )}
                 {t.detectLocation}
               </button>
-
-              {/* City selector fallback */}
-              <div className="flex-1 flex flex-col justify-center">
-                <select
-                  onChange={handleCitySelect}
-                  value={CITY_PRESETS.some(c => c.name === activeName) ? activeName : ''}
-                  className="w-full bg-surface-container-high border border-outline-variant/30 text-on-surface rounded-2xl py-4 px-5 font-bold text-xs focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all cursor-pointer"
-                >
-                  <option value="" disabled>{t.selectCity}</option>
-                  {CITY_PRESETS.map((city) => (
-                    <option key={city.name} value={city.name}>
-                      {getCityLabel(city)}
-                    </option>
-                  ))}
-                </select>
-              </div>
             </div>
 
             {/* Errors display */}
