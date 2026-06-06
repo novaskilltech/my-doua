@@ -8,9 +8,8 @@ import { DuaResultCard } from '@/components/dua/DuaResultCard';
 import { useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'motion/react';
-import { Sparkles, ArrowRight, Heart, Brain, Sun, Moon } from 'lucide-react';
-import { MOCK_DUAS } from '@/data/duas';
-import { SavedDua } from '@/types';
+import { Sparkles, ArrowRight } from 'lucide-react';
+import { CategoryGrid } from '@/components/categories/CategoryGrid';
 
 export default function HomePage() {
   const { t, isRTL } = useTranslation();
@@ -22,19 +21,7 @@ export default function HomePage() {
 
   const recentSaved = savedDuas.slice(-2).reverse();
 
-  const hour = new Date().getHours();
-  const isEvening = hour >= 18 || hour < 6;
-  const targetCategory = isEvening ? 'soir' : 'matin';
-  const suggestedDuas = MOCK_DUAS.filter(dua => dua.categoryIds.includes(targetCategory)).slice(0, 3);
 
-  const handleSave = (dua: any) => {
-    const savedDua: SavedDua = {
-      ...dua,
-      savedAt: new Date().toISOString(),
-      isFavorite: false,
-    };
-    addSavedDua(savedDua);
-  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -74,30 +61,14 @@ export default function HomePage() {
             </p>
           </motion.section>
 
-          {/* Suggested Duas for Morning/Evening */}
+          {/* Categories Section */}
           <motion.section variants={itemVariants} className="space-y-6">
             <div className="flex justify-between items-end">
               <h3 className="font-manrope font-bold text-primary tracking-tight uppercase text-xs">
-                {isEvening ? t.eveningDuas : t.morningDuas}
+                {t.categories}
               </h3>
-              <Link href={isEvening ? "/categories/soir" : "/categories/matin"} className="flex items-center text-xs font-bold text-secondary group">
-                {t.viewAll}
-                <ArrowRight size={14} className={`${isRTL ? "mr-1 rotate-180" : "ml-1"} transition-transform group-hover:translate-x-1`} />
-              </Link>
             </div>
-            <div className="space-y-6">
-              {suggestedDuas.map((dua) => {
-                const isSaved = savedDuas.some(d => d.id === dua.id);
-                return (
-                  <DuaResultCard 
-                    key={dua.id} 
-                    dua={dua} 
-                    isSaved={isSaved}
-                    onSave={() => handleSave(dua)}
-                  />
-                );
-              })}
-            </div>
+            <CategoryGrid />
           </motion.section>
 
           {/* Daily Verse */}
@@ -132,37 +103,6 @@ export default function HomePage() {
               </div>
             </motion.section>
           )}
-
-          {/* Quick Suggestions Categories */}
-          <motion.section variants={itemVariants} className="space-y-6">
-            <div className="flex justify-between items-end">
-              <h3 className="font-manrope font-bold text-primary tracking-tight uppercase text-xs">{t.suggestionsForYou}</h3>
-              <Link href="/categories" className="flex items-center text-xs font-bold text-secondary group">
-                {t.viewAll}
-                <ArrowRight size={14} className={`${isRTL ? "mr-1 rotate-180" : "ml-1"} transition-transform group-hover:translate-x-1`} />
-              </Link>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <Link href="/categories/anxiete" className="group cursor-pointer bg-surface-container-high rounded-3xl p-6 flex flex-col justify-between aspect-square hover:bg-primary hover:text-on-primary transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-primary/20">
-                <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:bg-white/20 group-hover:text-white transition-colors">
-                  <Brain size={24} />
-                </div>
-                <div>
-                  <h4 className="font-headline text-xl font-bold mb-1">{t.anxiety}</h4>
-                  <p className="text-[10px] opacity-70 group-hover:opacity-100 uppercase tracking-wider font-bold">{t.innerCalm}</p>
-                </div>
-              </Link>
-              <Link href="/categories/gratitude" className="group cursor-pointer bg-secondary-container rounded-3xl p-6 flex flex-col justify-between aspect-square hover:bg-primary hover:text-on-primary transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-primary/20">
-                <div className="w-12 h-12 bg-white/50 rounded-2xl flex items-center justify-center text-on-secondary-container group-hover:bg-white/20 group-hover:text-white transition-colors">
-                  <Heart size={24} />
-                </div>
-                <div>
-                  <h4 className="font-headline text-xl font-bold mb-1 text-on-secondary-container group-hover:text-on-primary">{t.gratitude}</h4>
-                  <p className="text-[10px] text-on-secondary-container/70 group-hover:text-on-primary/70 uppercase tracking-wider font-bold">{t.blessings}</p>
-                </div>
-              </Link>
-            </div>
-          </motion.section>
 
           {/* Mood Input Section (AI Assistant) */}
           <motion.section variants={itemVariants}>
