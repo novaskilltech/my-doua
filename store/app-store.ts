@@ -15,6 +15,7 @@ interface AppState {
     onBack?: () => void;
   };
   userLocation: { latitude: number; longitude: number; name?: string; isGPS: boolean } | null;
+  calculationMethod: 'UmmAlQura' | 'MoroccoHabous';
   
   // Actions
   init: () => Promise<void>;
@@ -31,6 +32,7 @@ interface AppState {
   setPaywallOpen: (open: boolean) => void;
   setPremium: (premium: boolean) => void;
   setLocation: (loc: { latitude: number; longitude: number; name?: string; isGPS: boolean } | null) => void;
+  setCalculationMethod: (method: 'UmmAlQura' | 'MoroccoHabous') => void;
 }
 
 export const useAppStore = create<AppState>((set, get) => ({
@@ -48,6 +50,7 @@ export const useAppStore = create<AppState>((set, get) => ({
   isPaywallOpen: false,
   topBarProps: {},
   userLocation: null,
+  calculationMethod: 'UmmAlQura',
   
   toggleDrawer: () => set((state) => ({ isDrawerOpen: !state.isDrawerOpen })),
   setTopBarProps: (props) => set({ topBarProps: props }),
@@ -65,6 +68,7 @@ export const useAppStore = create<AppState>((set, get) => ({
     const showTrans = await storage.getPreference('showTransliteration') ?? true;
     const isPrem = await storage.getPreference('isPremium') ?? false;
     const userLoc = await storage.getPreference('userLocation') || null;
+    const calcMethod = await storage.getPreference('calculationMethod') || 'UmmAlQura';
     const saved = await storage.getSavedDuas();
     
     set({
@@ -77,6 +81,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       savedDuas: saved,
       isPremium: isPrem as boolean,
       userLocation: userLoc,
+      calculationMethod: calcMethod as 'UmmAlQura' | 'MoroccoHabous',
       isInitialized: true,
     });
   },
@@ -128,11 +133,17 @@ export const useAppStore = create<AppState>((set, get) => ({
     storage.setPreference('userLocation', loc);
   },
 
+  setCalculationMethod: (method) => {
+    set({ calculationMethod: method });
+    storage.setPreference('calculationMethod', method);
+  },
+
   clearData: async () => {
     await storage.clearAll();
     set({
       savedDuas: [],
       userLocation: null,
+      calculationMethod: 'UmmAlQura',
       preferences: {
         language: 'fr',
         theme: 'emerald',

@@ -61,7 +61,7 @@ const CITY_PRESETS: CityPreset[] = [
 
 export default function PrayersPage() {
   const { t, language, isRTL } = useTranslation();
-  const { userLocation, setLocation, setTopBarProps } = useAppStore();
+  const { userLocation, setLocation, setTopBarProps, calculationMethod, setCalculationMethod } = useAppStore();
   
   const [gpsLoading, setGpsLoading] = useState(false);
   const [gpsError, setGpsError] = useState<string | null>(null);
@@ -85,7 +85,16 @@ export default function PrayersPage() {
 
   // Calculation of prayer times using adhan
   const coordinates = new Coordinates(activeLat, activeLon);
-  const params = CalculationMethod.UmmAlQura();
+  
+  let params;
+  if (calculationMethod === 'MoroccoHabous') {
+    params = CalculationMethod.MuslimWorldLeague();
+    params.fajrAngle = 19;
+    params.ishaAngle = 17;
+  } else {
+    params = CalculationMethod.UmmAlQura();
+  }
+  
   const prayerTimes = new PrayerTimes(coordinates, currentTime, params);
 
   // Format Helper
@@ -207,9 +216,9 @@ export default function PrayersPage() {
           
           {/* Header Description */}
           <motion.section variants={itemVariants} className="text-center space-y-2">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wider font-body">
               <Sparkles size={12} />
-              {t.ummAlQura}
+              {calculationMethod === 'MoroccoHabous' ? t.moroccoHabous : t.ummAlQura}
             </div>
             <h2 className="font-headline font-bold text-primary text-3xl sm:text-4xl">
               {t.prayerTimes}
@@ -355,6 +364,35 @@ export default function PrayersPage() {
                 </motion.div>
               )}
             </AnimatePresence>
+            {/* Calculation Method Selector */}
+            <div className="space-y-3 pt-4 border-t border-outline-variant/20">
+              <div className="flex items-center gap-2 text-on-surface-variant">
+                <Globe size={14} className="text-secondary" />
+                <span className="text-[10px] font-bold uppercase tracking-wider">Méthode de calcul</span>
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <button
+                  onClick={() => setCalculationMethod('UmmAlQura')}
+                  className={`py-3 px-4 rounded-xl text-xs font-bold border transition-all active:scale-[0.98] ${
+                    calculationMethod === 'UmmAlQura'
+                      ? 'bg-primary/10 border-primary text-primary'
+                      : 'bg-surface-container-high/40 border-outline-variant/20 text-on-surface-variant hover:border-outline-variant/50'
+                  }`}
+                >
+                  Umm Al-Qura
+                </button>
+                <button
+                  onClick={() => setCalculationMethod('MoroccoHabous')}
+                  className={`py-3 px-4 rounded-xl text-xs font-bold border transition-all active:scale-[0.98] ${
+                    calculationMethod === 'MoroccoHabous'
+                      ? 'bg-primary/10 border-primary text-primary'
+                      : 'bg-surface-container-high/40 border-outline-variant/20 text-on-surface-variant hover:border-outline-variant/50'
+                  }`}
+                >
+                  Maroc (Habous)
+                </button>
+              </div>
+            </div>
           </motion.section>
 
         </div>
