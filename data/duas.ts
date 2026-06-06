@@ -10,7 +10,7 @@ export const MOCK_DUAS: Dua[] = [
     hadithStatus: "Sahih",
     recommendedMoment: "Matin et soir",
     repetition: "3 fois",
-    categoryIds: ["anxiete", "tristesse", "difficulte-financiere", "matin", "soir"]
+    categoryIds: ["anxiete", "tristesse", "difficulte-financiere", "matin", "soir", "stress", "mal-etre", "subsistance-licite"]
   },
   {
     id: "dua-2",
@@ -63,7 +63,7 @@ export const MOCK_DUAS: Dua[] = [
     hadithStatus: "Sahih",
     recommendedMoment: "En cas de stress intense ou de détresse",
     repetition: "1 fois",
-    categoryIds: ["stress", "apaisement", "peur", "detresse", "epreuve"]
+    categoryIds: ["stress", "apaisement", "peur", "detresse", "epreuve", "mal-etre"]
   },
   {
     id: "dua-7",
@@ -78,14 +78,14 @@ export const MOCK_DUAS: Dua[] = [
   },
   {
     id: "dua-8",
-    arabic: "أَعُوذُ بِكَلِمَاتِ اللَّهِ Tَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ، وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ",
+    arabic: "أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ، وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ",
     transliteration: "A'ūdhu bi-kalimāti-l-Lāhi-t-tāmmati min kulli shayṭānin wa hāmmah, wa min kulli 'aynin lāmmah",
     translation: "Je cherche protection par les paroles parfaites d'Allah contre tout démon, tout animal venimeux et contre tout mauvais œil.",
     source: "Al-Bukhari",
     hadithStatus: "Sahih",
     recommendedMoment: "Matin et soir, ou pour protéger les enfants",
     repetition: "3 fois",
-    categoryIds: ["mauvais-oeil", "sorcellerie", "protection-hasad", "peur", "matin", "soir"]
+    categoryIds: ["mauvais-oeil", "sorcellerie", "protection-hasad", "peur", "matin", "soir", "protection-enfants"]
   },
   {
     id: "dua-9",
@@ -94,7 +94,7 @@ export const MOCK_DUAS: Dua[] = [
     translation: "Allah nous suffit, et Il est le meilleur Garant.",
     source: "Al-Bukhari (Coran 3:173)",
     hadithStatus: "Sahih",
-    recommendedMoment: "Face à une injustice ou une difficulté",
+    recommendedMoment: "Face à une injustice ou une épreuve",
     repetition: "Autant de fois que possible",
     categoryIds: ["injustice", "peur", "epreuve", "invocations-essentielles"]
   },
@@ -129,7 +129,7 @@ export const MOCK_DUAS: Dua[] = [
     hadithStatus: "Sahih",
     recommendedMoment: "Matin et soir",
     repetition: "1 fois",
-    categoryIds: ["mal-etre", "apaisement", "tristesse", "anxiete", "detresse", "matin", "soir"]
+    categoryIds: ["mal-etre", "apaisement", "tristesse", "anxiete", "detresse", "matin", "soir", "stress"]
   },
   {
     id: "dua-13",
@@ -166,7 +166,7 @@ export const MOCK_DUAS: Dua[] = [
   },
   {
     id: "dua-16",
-    arabic: "أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
+    arabic: "أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُVOِ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
     transliteration: "Aṣbaḥnā wa aṣbaḥal-mulku lillāh, wal-ḥamdu lillāh, lā ilāha illallāhu waḥdahu lā sharīka lah, lahul-mulku wa lahul-ḥamdu wa huwa 'alā kulli shay'in qadīr",
     translation: "Nous sommes au matin et le règne appartient à Allah, louange à Allah. Il n'y a pas de divinité en dehors d'Allah unique, sans associé. À Lui la royauté et la louange, et Il est Tout-Puissant.",
     source: "Muslim",
@@ -177,7 +177,7 @@ export const MOCK_DUAS: Dua[] = [
   },
   {
     id: "dua-17",
-    arabic: "أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا Stُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
+    arabic: "أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
     transliteration: "Amsaynā wa amsal-mulku lillāh, wal-ḥamdu lillāh, lā ilāha illallāhu waḥdahu lā sharīka lah, lahul-mulku wa lahul-ḥamdu wa huwa 'alā kulli shay'in qadīr",
     translation: "Nous sommes au soir et le règne appartient à Allah, louange à Allah. Il n'y a pas de divinité en dehors d'Allah unique, sans associé. À Lui la royauté et la louange, et Il est Tout-Puissant.",
     source: "Muslim",
@@ -210,7 +210,7 @@ export const MOCK_DUAS: Dua[] = [
   },
   {
     id: "dua-20",
-    arabic: "بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ",
+    arabic: "بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ",
     transliteration: "Bismillāhille dhī lā yaḍurru ma'as mihi shay'un fil-arḍi wa lā fis-samā'i wa Huwas-Samī'ul-'Alīm",
     translation: "Au nom d'Allah, tel qu'en Compagnie de Son Nom rien ne peut nuire sur terre ni dans le ciel, et Il est l'Audient, l'Omniscient.",
     source: "Abu Dawud & At-Tirmidhi",
@@ -232,7 +232,7 @@ export const MOCK_DUAS: Dua[] = [
   },
   {
     id: "dua-22",
-    arabic: "اللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى، وَمِنَ الْعَمَلِ مَا Tَرْضَى",
+    arabic: "اللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى، وَمِنَ الْعَمَلِ مَا تَرْضَى",
     transliteration: "Allāhumma innā nas'aluka fī safarinā hādhā al-birra wat-taqwā, wa minal-'amali mā tarḍā",
     translation: "Ô Allah, nous Te demandons dans ce voyage la piété, la dévotion et les œuvres qui Te plaisent.",
     source: "Muslim",
@@ -261,7 +261,7 @@ export const MOCK_DUAS: Dua[] = [
     hadithStatus: "Sahih",
     recommendedMoment: "Dans ses prières",
     repetition: "1 fois",
-    categoryIds: ["famille", "bonheur"]
+    categoryIds: ["famille", "bonheur", "joie"]
   },
   {
     id: "dua-25",
@@ -360,7 +360,7 @@ export const MOCK_DUAS: Dua[] = [
     hadithStatus: "Sahih",
     recommendedMoment: "Roqya (exorcisme) pour se soigner ou soigner un malade du mauvais œil ou de la jalousie",
     repetition: "1 fois",
-    categoryIds: ["mauvais-oeil", "protection-hasad", "ruqya", "maladie", "epreuve"]
+    categoryIds: ["mauvais-oeil", "protection-hasad", "ruqya", "maladie", "epreuve", "protection-enfants"]
   },
   {
     id: "dua-34",
@@ -371,7 +371,7 @@ export const MOCK_DUAS: Dua[] = [
     hadithStatus: "Sahih",
     recommendedMoment: "À dire lorsqu'on voit quelque chose qui nous plaît chez son frère afin de ne pas lui porter l'œil (le bénir)",
     repetition: "1 fois",
-    categoryIds: ["mauvais-oeil", "protection-hasad", "famille"]
+    categoryIds: ["mauvais-oeil", "protection-hasad", "famille", "protection-enfants"]
   },
   {
     id: "dua-35",
@@ -397,7 +397,7 @@ export const MOCK_DUAS: Dua[] = [
   },
   {
     id: "dua-37",
-    arabic: "رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِن لَّدُنكَ رَحْمَةً ۚ إِنَّكَ أَنتَ الْوَهَّابُ",
+    arabic: "رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِن لَّdُنكَ رَحْمَةً ۚ إِنَّكَ أَنتَ الْوَهَّابُ",
     transliteration: "Rabbanā lā tuzigh qulūbanā ba'da idh hadaytanā wa hab lanā mil-ladunka raḥmatan innaka Antal-Wahhāb",
     translation: "Seigneur, ne laisse pas nos cœurs dévier après nous avoir guidés, et accorde-nous une miséricorde venant de Toi. C’est Toi, certes, le Grand Donateur.",
     source: "Coran (3:8)",
@@ -405,5 +405,71 @@ export const MOCK_DUAS: Dua[] = [
     recommendedMoment: "Dans ses prières quotidiennes",
     repetition: "1 fois",
     categoryIds: ["crainte-allah", "invocations-essentielles"]
+  },
+  {
+    id: "dua-38",
+    arabic: "الْحَمْدُ لِلَّهِ حَمْداً كَثِيراً طَيِّباً مُبَارَكاً فِيهِ",
+    transliteration: "Al-ḥamdu lillāhi ḥamdan kathīran ṭayyiban mubārakan fīh",
+    translation: "Louange infinie à Allah, une louange pure et bénie.",
+    source: "Al-Bukhari",
+    hadithStatus: "Sahih",
+    recommendedMoment: "En cas de bonne nouvelle, de joie ou après manger/boire",
+    repetition: "1 fois",
+    categoryIds: ["joie", "gratitude", "bonheur"]
+  },
+  {
+    id: "dua-39",
+    arabic: "اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا, وَعَمَلًا مُتَقَبَّلًا",
+    transliteration: "Allāhumma innī as'aluka 'ilman nāfi'an, wa rizqan ṭayyiban, wa 'amalan mutaqabbalan",
+    translation: "Ô Allah, je Te demande un savoir utile, une subsistance licite et saine, et une œuvre agréée.",
+    source: "Ibn Majah",
+    hadithStatus: "Sahih",
+    recommendedMoment: "Après la prière du matin (Sobh)",
+    repetition: "1 fois",
+    categoryIds: ["subsistance-licite", "matin", "invocations-essentielles"]
+  },
+  {
+    id: "dua-40",
+    arabic: "بِسْمِ اللَّهِ وَلَجْنَا، وَبِسْمِ اللَّهِ خَرَجْنَا، وَعَلَى اللَّهِ رَبِّنَا تَوَكَّلْنَا",
+    transliteration: "Bismillāhi walajnā, wa bismillāhi kharajnā, wa 'alallāhi Rabbinā tawakkalnā",
+    translation: "Au nom d'Allah nous entrons, au nom d'Allah nous sortons, et en Allah notre Seigneur nous plaçons notre confiance.",
+    source: "Abu Dawud",
+    hadithStatus: "Sahih",
+    recommendedMoment: "En entrant dans sa maison ou un nouveau lieu",
+    repetition: "1 fois",
+    categoryIds: ["protection-lieu", "voyage"]
+  },
+  {
+    id: "dua-41",
+    arabic: "بِسْمِ اللَّهِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَ هَذِهِ الْمَوْلِجِ وَخَيْرَ الْمَخْرَجِ",
+    transliteration: "Bismillāhi, Allāhumma innī as'aluka khayra hādhil-mawliji wa khayra al-makhraji",
+    translation: "Au nom d'Allah. Ô Allah, je Te demande le bien de ce lieu d'entrée et le bien de ce lieu de sortie.",
+    source: "Abu Dawud",
+    hadithStatus: "Sahih",
+    recommendedMoment: "En entrant dans un lieu",
+    repetition: "1 fois",
+    categoryIds: ["protection-lieu"]
+  },
+  {
+    id: "dua-42",
+    arabic: "رَبِّ هَبْ لِي مِن لَّدُنكَ ذُرِّيَّةً طَيِّبَةً ۖ إِنَّكَ سَمِيعُ الدُّعَاءِ",
+    transliteration: "Rabbi hab lī mil-ladunka dhurriyyatan ṭayyibatan innaka Samī'ud-du'ā'",
+    translation: "Ô mon Seigneur, donne-moi, venant de Toi, une excellente descendance. Car Tu es Celui qui entend bien la prière.",
+    source: "Coran (3:38)",
+    hadithStatus: "Sahih",
+    recommendedMoment: "Dans ses prières quotidiennes ou en prosternation",
+    repetition: "1 fois",
+    categoryIds: ["infertilite", "famille", "epreuve"]
+  },
+  {
+    id: "dua-43",
+    arabic: "رَبِّ هَبْ لِي مِنَ الصَّالِحِينَ",
+    transliteration: "Rabbi hab lī minaṣ-ṣāliḥīn",
+    translation: "Seigneur, fais-moi don d'une progéniture sainte / d'enfants vertueux.",
+    source: "Coran (37:100)",
+    hadithStatus: "Sahih",
+    recommendedMoment: "Dans ses prières quotidiennes",
+    repetition: "1 fois",
+    categoryIds: ["infertilite", "famille"]
   }
 ];

@@ -221,7 +221,7 @@ export default function LandingPage() {
                 <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-2 text-[8px] text-on-surface-variant leading-relaxed">
                   <p className="font-bold text-primary mb-0.5">Invocation récente :</p>
                   <p className="font-arabic text-right text-[10px] my-1 text-primary">اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ</p>
-                  <p className="italic text-[7px] opacity-75">\"O Allah, je te demande le pardon et la santé...\"</p>
+                  <p className="italic text-[7px] opacity-75">&quot;O Allah, je te demande le pardon et la santé...&quot;</p>
                 </div>
                 
                 <div className="mt-auto pb-3 flex items-center justify-center gap-1.5 text-[8px] text-on-surface-variant/40">
