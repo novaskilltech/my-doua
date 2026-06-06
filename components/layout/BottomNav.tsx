@@ -13,6 +13,7 @@ export function BottomNav() {
   const navItems = [
     { href: '/app', icon: 'home', label: t.home },
     { href: '/categories', icon: 'menu_book', label: t.categories },
+    { href: '/prayers', icon: 'schedule', label: t.prayers },
     { href: '/my-duas', icon: 'auto_awesome', label: t.myDuas },
     { href: '/settings', icon: 'settings', label: t.settings },
   ];

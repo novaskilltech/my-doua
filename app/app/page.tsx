@@ -9,16 +9,32 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'motion/react';
 import { Sparkles, ArrowRight, Heart, Brain, Sun, Moon } from 'lucide-react';
+import { MOCK_DUAS } from '@/data/duas';
+import { SavedDua } from '@/types';
 
 export default function HomePage() {
   const { t, isRTL } = useTranslation();
-  const { savedDuas, setTopBarProps } = useAppStore();
+  const { savedDuas, setTopBarProps, addSavedDua } = useAppStore();
   
   useEffect(() => {
     setTopBarProps({});
   }, [setTopBarProps]);
 
   const recentSaved = savedDuas.slice(-2).reverse();
+
+  const hour = new Date().getHours();
+  const isEvening = hour >= 18 || hour < 6;
+  const targetCategory = isEvening ? 'soir' : 'matin';
+  const suggestedDuas = MOCK_DUAS.filter(dua => dua.categoryIds.includes(targetCategory)).slice(0, 3);
+
+  const handleSave = (dua: any) => {
+    const savedDua: SavedDua = {
+      ...dua,
+      savedAt: new Date().toISOString(),
+      isFavorite: false,
+    };
+    addSavedDua(savedDua);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -58,34 +74,29 @@ export default function HomePage() {
             </p>
           </motion.section>
 
-          {/* Quick Suggestions */}
-          <motion.section variants={itemVariants}>
-            <div className="flex justify-between items-end mb-6">
-              <h3 className="font-manrope font-bold text-primary tracking-tight uppercase text-xs">{t.suggestionsForYou}</h3>
-              <Link href="/categories" className="flex items-center text-xs font-bold text-secondary group">
+          {/* Suggested Duas for Morning/Evening */}
+          <motion.section variants={itemVariants} className="space-y-6">
+            <div className="flex justify-between items-end">
+              <h3 className="font-manrope font-bold text-primary tracking-tight uppercase text-xs">
+                {isEvening ? t.eveningDuas : t.morningDuas}
+              </h3>
+              <Link href={isEvening ? "/categories/soir" : "/categories/matin"} className="flex items-center text-xs font-bold text-secondary group">
                 {t.viewAll}
                 <ArrowRight size={14} className={`${isRTL ? "mr-1 rotate-180" : "ml-1"} transition-transform group-hover:translate-x-1`} />
               </Link>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <Link href="/categories/anxiete" className="group cursor-pointer bg-surface-container-high rounded-3xl p-6 flex flex-col justify-between aspect-square hover:bg-primary hover:text-on-primary transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-primary/20">
-                <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:bg-white/20 group-hover:text-white transition-colors">
-                  <Brain size={24} />
-                </div>
-                <div>
-                  <h4 className="font-headline text-xl font-bold mb-1">{t.anxiety}</h4>
-                  <p className="text-[10px] opacity-70 group-hover:opacity-100 uppercase tracking-wider font-bold">{t.innerCalm}</p>
-                </div>
-              </Link>
-              <Link href="/categories/gratitude" className="group cursor-pointer bg-secondary-container rounded-3xl p-6 flex flex-col justify-between aspect-square hover:bg-primary hover:text-on-primary transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-primary/20">
-                <div className="w-12 h-12 bg-white/50 rounded-2xl flex items-center justify-center text-on-secondary-container group-hover:bg-white/20 group-hover:text-white transition-colors">
-                  <Heart size={24} />
-                </div>
-                <div>
-                  <h4 className="font-headline text-xl font-bold mb-1 text-on-secondary-container group-hover:text-on-primary">{t.gratitude}</h4>
-                  <p className="text-[10px] text-on-secondary-container/70 group-hover:text-on-primary/70 uppercase tracking-wider font-bold">{t.blessings}</p>
-                </div>
-              </Link>
+            <div className="space-y-6">
+              {suggestedDuas.map((dua) => {
+                const isSaved = savedDuas.some(d => d.id === dua.id);
+                return (
+                  <DuaResultCard 
+                    key={dua.id} 
+                    dua={dua} 
+                    isSaved={isSaved}
+                    onSave={() => handleSave(dua)}
+                  />
+                );
+              })}
             </div>
           </motion.section>
 
@@ -122,28 +133,35 @@ export default function HomePage() {
             </motion.section>
           )}
 
-          {/* Time-based section */}
-          <motion.section 
-            variants={itemVariants}
-            className="bg-surface-container rounded-[32px] p-8 flex items-center gap-6 border border-outline-variant/30"
-          >
-            <div className="w-16 h-16 bg-secondary-container rounded-2xl flex items-center justify-center text-on-secondary-container shrink-0">
-              {new Date().getHours() > 18 || new Date().getHours() < 6 ? <Moon size={32} /> : <Sun size={32} />}
+          {/* Quick Suggestions Categories */}
+          <motion.section variants={itemVariants} className="space-y-6">
+            <div className="flex justify-between items-end">
+              <h3 className="font-manrope font-bold text-primary tracking-tight uppercase text-xs">{t.suggestionsForYou}</h3>
+              <Link href="/categories" className="flex items-center text-xs font-bold text-secondary group">
+                {t.viewAll}
+                <ArrowRight size={14} className={`${isRTL ? "mr-1 rotate-180" : "ml-1"} transition-transform group-hover:translate-x-1`} />
+              </Link>
             </div>
-            <div className="space-y-1">
-              <h4 className="font-headline font-bold text-primary text-lg">
-                {new Date().getHours() > 18 || new Date().getHours() < 6 ? t.eveningDuas : t.morningDuas}
-              </h4>
-              <p className="text-on-surface-variant text-sm leading-relaxed">
-                {new Date().getHours() > 18 || new Date().getHours() < 6 ? t.eveningDuasDesc : t.morningDuasDesc}
-              </p>
+            <div className="grid grid-cols-2 gap-4">
+              <Link href="/categories/anxiete" className="group cursor-pointer bg-surface-container-high rounded-3xl p-6 flex flex-col justify-between aspect-square hover:bg-primary hover:text-on-primary transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-primary/20">
+                <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:bg-white/20 group-hover:text-white transition-colors">
+                  <Brain size={24} />
+                </div>
+                <div>
+                  <h4 className="font-headline text-xl font-bold mb-1">{t.anxiety}</h4>
+                  <p className="text-[10px] opacity-70 group-hover:opacity-100 uppercase tracking-wider font-bold">{t.innerCalm}</p>
+                </div>
+              </Link>
+              <Link href="/categories/gratitude" className="group cursor-pointer bg-secondary-container rounded-3xl p-6 flex flex-col justify-between aspect-square hover:bg-primary hover:text-on-primary transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-primary/20">
+                <div className="w-12 h-12 bg-white/50 rounded-2xl flex items-center justify-center text-on-secondary-container group-hover:bg-white/20 group-hover:text-white transition-colors">
+                  <Heart size={24} />
+                </div>
+                <div>
+                  <h4 className="font-headline text-xl font-bold mb-1 text-on-secondary-container group-hover:text-on-primary">{t.gratitude}</h4>
+                  <p className="text-[10px] text-on-secondary-container/70 group-hover:text-on-primary/70 uppercase tracking-wider font-bold">{t.blessings}</p>
+                </div>
+              </Link>
             </div>
-            <Link 
-              href={new Date().getHours() > 18 || new Date().getHours() < 6 ? "/categories/soir" : "/categories/matin"} 
-              className="ml-auto w-10 h-10 bg-white rounded-full flex items-center justify-center text-primary shadow-sm hover:shadow-md transition-shadow"
-            >
-              <ArrowRight size={20} className={isRTL ? "rotate-180" : ""} />
-            </Link>
           </motion.section>
 
           {/* Mood Input Section (AI Assistant) */}

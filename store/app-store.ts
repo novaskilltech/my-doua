@@ -14,6 +14,7 @@ interface AppState {
     showBack?: boolean;
     onBack?: () => void;
   };
+  userLocation: { latitude: number; longitude: number; name?: string; isGPS: boolean } | null;
   
   // Actions
   init: () => Promise<void>;
@@ -29,6 +30,7 @@ interface AppState {
   clearData: () => Promise<void>;
   setPaywallOpen: (open: boolean) => void;
   setPremium: (premium: boolean) => void;
+  setLocation: (loc: { latitude: number; longitude: number; name?: string; isGPS: boolean } | null) => void;
 }
 
 export const useAppStore = create<AppState>((set, get) => ({
@@ -45,6 +47,7 @@ export const useAppStore = create<AppState>((set, get) => ({
   isPremium: false,
   isPaywallOpen: false,
   topBarProps: {},
+  userLocation: null,
   
   toggleDrawer: () => set((state) => ({ isDrawerOpen: !state.isDrawerOpen })),
   setTopBarProps: (props) => set({ topBarProps: props }),
@@ -61,6 +64,7 @@ export const useAppStore = create<AppState>((set, get) => ({
     const theme = await storage.getPreference('theme') || 'emerald';
     const showTrans = await storage.getPreference('showTransliteration') ?? true;
     const isPrem = await storage.getPreference('isPremium') ?? false;
+    const userLoc = await storage.getPreference('userLocation') || null;
     const saved = await storage.getSavedDuas();
     
     set({
@@ -72,6 +76,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       },
       savedDuas: saved,
       isPremium: isPrem as boolean,
+      userLocation: userLoc,
       isInitialized: true,
     });
   },
@@ -118,10 +123,16 @@ export const useAppStore = create<AppState>((set, get) => ({
     if (updated) storage.saveDua(updated);
   },
 
+  setLocation: (loc) => {
+    set({ userLocation: loc });
+    storage.setPreference('userLocation', loc);
+  },
+
   clearData: async () => {
     await storage.clearAll();
     set({
       savedDuas: [],
+      userLocation: null,
       preferences: {
         language: 'fr',
         theme: 'emerald',
