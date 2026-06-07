@@ -2,7 +2,7 @@ import type {Metadata} from 'next';
 import { Noto_Serif, Manrope, Noto_Naskh_Arabic } from 'next/font/google';
 import './globals.css';
 import { AppShell } from '@/components/layout/AppShell';
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from '@vercel/analytics/next';
 
 const notoSerif = Noto_Serif({ 
   subsets: ['latin'], 
