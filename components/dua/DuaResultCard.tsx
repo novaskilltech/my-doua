@@ -18,6 +18,7 @@ export function DuaResultCard({ dua, isSaved, onSave }: DuaResultCardProps) {
   const { t } = useTranslation();
   const { preferences, toggleFavorite, savedDuas } = useAppStore();
   const [copied, setCopied] = useState(false);
+  const [shared, setShared] = useState(false);
   const [count, setCount] = useState(0);
 
   const match = dua.repetition?.match(/(\d+)\s*fois/i);
@@ -33,18 +34,34 @@ export function DuaResultCard({ dua, isSaved, onSave }: DuaResultCardProps) {
   };
 
   const handleShare = async () => {
+    const shareData = {
+      title: t.appName,
+      text: `${dua.arabic}\n\n${dua.translation}\n\nSource: ${dua.source}`,
+      url: window.location.href,
+    };
+
+    const copyFallback = async () => {
+      try {
+        const textToCopy = `${shareData.text}\n\nLien: ${shareData.url}`;
+        await navigator.clipboard.writeText(textToCopy);
+        setShared(true);
+        setTimeout(() => setShared(false), 2000);
+      } catch (err) {
+        console.error('Clipboard fallback failed:', err);
+      }
+    };
+
     if (navigator.share) {
       try {
-        await navigator.share({
-          title: t.appName,
-          text: `${dua.arabic}\n\n${dua.translation}\n\nSource: ${dua.source}`,
-          url: window.location.href,
-        });
+        await navigator.share(shareData);
+        setShared(true);
+        setTimeout(() => setShared(false), 2000);
       } catch (err) {
-        console.error('Share failed:', err);
+        console.warn('Share cancelled or failed, using copy fallback:', err);
+        await copyFallback();
       }
     } else {
-      handleCopy();
+      await copyFallback();
     }
   };
 
@@ -181,11 +198,16 @@ export function DuaResultCard({ dua, isSaved, onSave }: DuaResultCardProps) {
             onClick={handleShare}
             className="flex flex-col items-center justify-center gap-2 py-4 rounded-xl hover:bg-surface-container-low transition-all active:scale-95 group"
           >
-            <div className="w-12 h-12 rounded-full flex items-center justify-center bg-surface-container text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
-              <span className="material-symbols-outlined">share</span>
+            <div className={cn(
+              "w-12 h-12 rounded-full flex items-center justify-center transition-colors",
+              shared ? "bg-green-100 text-green-600" : "bg-surface-container text-primary group-hover:bg-primary group-hover:text-on-primary"
+            )}>
+              <span className="material-symbols-outlined">
+                {shared ? 'check' : 'share'}
+              </span>
             </div>
             <span className="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">
-              {t.share}
+              {shared ? t.copied : t.share}
             </span>
           </button>
 

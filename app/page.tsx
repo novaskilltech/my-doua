@@ -26,13 +26,8 @@ export default function LandingPage() {
       text: 'Trouvez l’invocation qui correspond exactement à vos ressentis en langage naturel.',
       url: 'https://doua.novaskill.tech',
     };
-    if (navigator.share) {
-      try {
-        await navigator.share(shareData);
-      } catch (err) {
-        console.log('Share cancelled or failed:', err);
-      }
-    } else {
+
+    const copyFallback = async () => {
       try {
         await navigator.clipboard.writeText(shareData.url);
         setShareTooltip(true);
@@ -40,6 +35,17 @@ export default function LandingPage() {
       } catch (err) {
         console.log('Clipboard error:', err);
       }
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        console.log('Share cancelled or failed, falling back to copy:', err);
+        await copyFallback();
+      }
+    } else {
+      await copyFallback();
     }
   };
 
