@@ -83,7 +83,7 @@ export function Drawer() {
 
             <div className="pt-8 border-t border-outline-variant/10">
               <p className="text-[10px] text-on-surface-variant/40 uppercase tracking-widest text-center">
-                Version 1.0.0 • 2026
+                © novaskilltech 2026 • Version 1.0.0
               </p>
             </div>
           </div>
