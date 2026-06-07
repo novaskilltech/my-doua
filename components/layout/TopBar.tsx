@@ -5,6 +5,7 @@ import { useAppStore } from '@/store/app-store';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'motion/react';
 import Image from 'next/image';
+import { useState } from 'react';
 
 interface TopBarProps {
   title?: string;
@@ -15,6 +16,36 @@ interface TopBarProps {
 export function TopBar({ title, showBack, onBack }: TopBarProps) {
   const { t, isRTL } = useTranslation();
   const { toggleDrawer } = useAppStore();
+  const [shareTooltip, setShareTooltip] = useState(false);
+
+  const handleShareApp = async () => {
+    const shareData = {
+      title: 'Mon Dou‘a Adéquat',
+      text: 'Trouvez l’invocation qui correspond exactement à vos ressentis en langage naturel.',
+      url: 'https://doua.novaskill.tech',
+    };
+
+    const copyFallback = async () => {
+      try {
+        await navigator.clipboard.writeText(shareData.url);
+        setShareTooltip(true);
+        setTimeout(() => setShareTooltip(false), 2000);
+      } catch (err) {
+        console.log('Clipboard error:', err);
+      }
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        console.log('Share failed, copying to clipboard:', err);
+        await copyFallback();
+      }
+    } else {
+      await copyFallback();
+    }
+  };
 
   return (
     <header className="fixed top-0 w-full z-[100] flex justify-between items-center px-6 h-20 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10">
@@ -55,9 +86,20 @@ export function TopBar({ title, showBack, onBack }: TopBarProps) {
       </div>
       
       <div className="flex items-center gap-3">
-        <button className="hover:bg-surface-container p-2.5 rounded-full transition-colors active:scale-90 transition-transform">
-          <span className="material-symbols-outlined text-on-surface/60 text-2xl">share</span>
-        </button>
+        <div className="relative">
+          <button 
+            onClick={handleShareApp}
+            className="hover:bg-surface-container p-2.5 rounded-full transition-colors active:scale-90 transition-transform"
+            title="Partager l'application"
+          >
+            <span className="material-symbols-outlined text-on-surface/60 text-2xl">share</span>
+          </button>
+          {shareTooltip && (
+            <span className="absolute top-12 right-0 bg-primary text-on-primary text-[10px] font-bold px-2.5 py-1 rounded-lg shadow-md whitespace-nowrap z-[110] animate-bounce">
+              Lien copié ! 💚
+            </span>
+          )}
+        </div>
         <div className="w-10 h-10 rounded-2xl bg-surface-container overflow-hidden border-2 border-white shadow-sm ring-1 ring-outline-variant/10 relative">
           <Image 
             alt="Logo" 
