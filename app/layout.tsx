@@ -2,6 +2,7 @@ import type {Metadata} from 'next';
 import { Noto_Serif, Manrope, Noto_Naskh_Arabic } from 'next/font/google';
 import './globals.css';
 import { AppShell } from '@/components/layout/AppShell';
+import { Analytics } from '@vercel/analytics/react';
 
 const notoSerif = Noto_Serif({ 
   subsets: ['latin'], 
@@ -82,6 +83,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
       </head>
       <body className={`${notoSerif.variable} ${manrope.variable} ${notoNaskhArabic.variable} font-body`} suppressHydrationWarning>
         <AppShell>{children}</AppShell>
+        <Analytics />
       </body>
     </html>
   );
