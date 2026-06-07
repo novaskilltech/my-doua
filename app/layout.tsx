@@ -46,15 +46,15 @@ export const metadata: Metadata = {
     siteName: 'Mon Dou‘a',
     images: [
       {
-        url: '/app_banner.png',
+        url: 'https://doua.novaskill.tech/app_banner_og.jpg',
         width: 1200,
         height: 630,
         alt: 'Mon Dou‘a - Invocations & Assistant Spirituel',
       },
       {
-        url: '/app_logo.png',
-        width: 512,
-        height: 512,
+        url: 'https://doua.novaskill.tech/app_logo_og.jpg',
+        width: 300,
+        height: 300,
         alt: 'Mon Dou‘a Logo',
       },
     ],
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Mon Dou‘a Adéquat',
     description: 'L’application qui te conseille le bon dou‘a au bon moment.',
-    images: ['/app_banner.png', '/app_logo.png'],
+    images: ['https://doua.novaskill.tech/app_banner_og.jpg', 'https://doua.novaskill.tech/app_logo_og.jpg'],
   },
 };
 
