@@ -15,7 +15,7 @@ interface AppState {
     onBack?: () => void;
   };
   userLocation: { latitude: number; longitude: number; name?: string; isGPS: boolean } | null;
-  calculationMethod: 'UmmAlQura' | 'MoroccoHabous';
+  calculationMethod: 'UmmAlQura' | 'MoroccoHabous' | 'MosqueDeParis' | 'UOIF';
   
   // Actions
   init: () => Promise<void>;
@@ -32,7 +32,7 @@ interface AppState {
   setPaywallOpen: (open: boolean) => void;
   setPremium: (premium: boolean) => void;
   setLocation: (loc: { latitude: number; longitude: number; name?: string; isGPS: boolean } | null) => void;
-  setCalculationMethod: (method: 'UmmAlQura' | 'MoroccoHabous') => void;
+  setCalculationMethod: (method: 'UmmAlQura' | 'MoroccoHabous' | 'MosqueDeParis' | 'UOIF') => void;
 }
 
 export const useAppStore = create<AppState>((set, get) => ({
@@ -81,7 +81,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       savedDuas: saved,
       isPremium: isPrem as boolean,
       userLocation: userLoc,
-      calculationMethod: calcMethod as 'UmmAlQura' | 'MoroccoHabous',
+      calculationMethod: calcMethod as 'UmmAlQura' | 'MoroccoHabous' | 'MosqueDeParis' | 'UOIF',
       isInitialized: true,
     });
   },

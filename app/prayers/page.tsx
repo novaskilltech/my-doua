@@ -41,6 +41,14 @@ export default function PrayersPage() {
     params = CalculationMethod.MuslimWorldLeague();
     params.fajrAngle = 19;
     params.ishaAngle = 17;
+  } else if (calculationMethod === 'MosqueDeParis') {
+    params = CalculationMethod.MuslimWorldLeague();
+    params.fajrAngle = 18;
+    params.ishaAngle = 18;
+  } else if (calculationMethod === 'UOIF') {
+    params = CalculationMethod.MuslimWorldLeague();
+    params.fajrAngle = 12;
+    params.ishaAngle = 12;
   } else {
     params = CalculationMethod.UmmAlQura();
   }
@@ -151,7 +159,13 @@ export default function PrayersPage() {
           <motion.section variants={itemVariants} className="text-center space-y-2">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wider font-body">
               <Sparkles size={12} />
-              {calculationMethod === 'MoroccoHabous' ? t.moroccoHabous : t.ummAlQura}
+              {calculationMethod === 'MoroccoHabous' 
+                ? t.moroccoHabous 
+                : calculationMethod === 'MosqueDeParis' 
+                ? t.mosqueDeParis 
+                : calculationMethod === 'UOIF' 
+                ? t.uoif 
+                : t.ummAlQura}
             </div>
             <h2 className="font-headline font-bold text-primary text-3xl sm:text-4xl">
               {t.prayerTimes}
@@ -307,6 +321,26 @@ export default function PrayersPage() {
                   }`}
                 >
                   Maroc (Habous)
+                </button>
+                <button
+                  onClick={() => setCalculationMethod('MosqueDeParis')}
+                  className={`py-3 px-4 rounded-xl text-xs font-bold border transition-all active:scale-[0.98] ${
+                    calculationMethod === 'MosqueDeParis'
+                      ? 'bg-primary/10 border-primary text-primary'
+                      : 'bg-surface-container-high/40 border-outline-variant/20 text-on-surface-variant hover:border-outline-variant/50'
+                  }`}
+                >
+                  Mosquée de Paris (18°)
+                </button>
+                <button
+                  onClick={() => setCalculationMethod('UOIF')}
+                  className={`py-3 px-4 rounded-xl text-xs font-bold border transition-all active:scale-[0.98] ${
+                    calculationMethod === 'UOIF'
+                      ? 'bg-primary/10 border-primary text-primary'
+                      : 'bg-surface-container-high/40 border-outline-variant/20 text-on-surface-variant hover:border-outline-variant/50'
+                  }`}
+                >
+                  UOIF (12°)
                 </button>
               </div>
             </div>
